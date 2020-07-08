@@ -23,7 +23,7 @@ def load_configuration(json_path='config.json'):
 def parse_map(json_map):
     width = json_map['width']
     height = json_map['height']
-    game_map = np.empty((width, height), dtype=Field)
+    game_map = np.empty((height, width), dtype=Field)
 
     row_counter = 0
     for json_row in json_map['map']:
