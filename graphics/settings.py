@@ -1,0 +1,1 @@
+PIXEL_SIZE = 16
