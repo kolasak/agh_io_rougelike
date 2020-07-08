@@ -1,11 +1,9 @@
-# Define character's fields (hp, strength, ...). Create character class. Display fields values in GUI.
-
 class CharacterInfo():
-    def __init__(self, hp, exp, strength, items):
+    def __init__(self, hp, exp, strength):
         self._hp = hp
         self._exp = exp
         self._strength = strength
-        self._items = items
+        self._items = []
 
     @property
     def hp(self):
@@ -35,8 +33,8 @@ class CharacterInfo():
     def items(self):
         return self._items
 
-    @items.setter
-    def items(self, value):
-        self._items = value
+    def add_item(self, item):
+        self._items.append(item)
 
-# todo: add and remove specific item from items
+    def remove_item(self, item):
+        self._items.remove(item)
