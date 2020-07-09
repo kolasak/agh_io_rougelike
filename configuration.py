@@ -1,7 +1,9 @@
-from fields import *
+import json
+
 import numpy as np
 
-import json
+from fields import *
+
 
 # Returns map as array of objects.
 # For these who dont know np.array is just array in C or Java, so you can get or set element by index/es.
@@ -12,7 +14,7 @@ def load_configuration(json_path='config.json'):
 
     json_stages = json_data['stages']
     stages = []
-    for json_stage in json_stages: # we allow user to define as many stages as he want, and we load each one
+    for json_stage in json_stages:  # we allow user to define as many stages as he want, and we load each one
         game_map = parse_map(json_stage['map'])
         game_map = parse_monsters(game_map, json_stage['monsters'])
         game_map = parse_npcs(game_map, json_stage['npcs'])
@@ -44,4 +46,3 @@ def parse_monsters(map, json_monsters):
 def parse_npcs(map, json_npcs):
     # add npcs to map
     return map
-
