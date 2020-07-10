@@ -1,5 +1,6 @@
 import pygame
 
+from fixtures.constants import font_name, font_size, green, dark_blue
 from graphics.settings import *
 
 
@@ -41,3 +42,23 @@ class Screen:
     @staticmethod
     def display_character_info(character_info_view):
         character_info_view.display()
+
+    def render_text_values(self, text_value, x, x_offset, y, y_offset):
+        font = pygame.font.Font(font_name, font_size)
+        text = font.render(text_value, True, green, dark_blue)
+
+        text_rect = self.__get_positioned_text(text, x, x_offset, y, y_offset)
+
+        self.display_surface.blit(text, text_rect)
+
+    def __get_positioned_text(self, text, x, x_offset, y, y_offset):
+        X, Y = self.__calculate_text_coordinates_with_offset(x, x_offset, y, y_offset)
+
+        text_rect = text.get_rect()
+        text_rect.center = (X // 2, Y // 2)
+
+        return text_rect
+
+    @staticmethod
+    def __calculate_text_coordinates_with_offset(x, x_offset, y, y_offset):
+        return x - x_offset, y + y_offset
