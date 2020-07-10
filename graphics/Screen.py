@@ -1,6 +1,8 @@
 import pygame
 
 from fixtures.constants import font_name, font_size, green, dark_blue
+from fixtures.constants import font_name, font_size
+from fixtures.constants import *
 from graphics.settings import *
 
 
@@ -12,13 +14,18 @@ class Screen:
     class __Screen:
         def __init__(self, fields):
             Screen.pygame = pygame.init()
-            width, height = fields.shape
+            self.fields = fields
+            self.width, self.height = fields.shape
+            Screen.screen_width = self.width * PIXEL_SIZE + SCREEN_PADDING_X
+            Screen.screen_height = self.height * PIXEL_SIZE + SCREEN_PADDING_Y
 
-            Screen.display_surface = pygame.display.set_mode(
-                (width * PIXEL_SIZE + SCREEN_PADDING_X, height * PIXEL_SIZE + SCREEN_PADDING_Y))
-            for x in range(0, width):
-                for y in range(0, height):
-                    pygame.draw.rect(Screen.display_surface, fields[x][y].colour,
+            Screen.display_surface = pygame.display.set_mode((Screen.screen_width, Screen.screen_height))
+
+        def display_map(self):
+            Screen.display_surface.fill(dark_blue)
+            for x in range(0, self.width):
+                for y in range(0, self.height):
+                    pygame.draw.rect(Screen.display_surface, self.fields[x][y].colour,
                                      (x * PIXEL_SIZE + SCREEN_PADDING_X / 2, y * PIXEL_SIZE + SCREEN_PADDING_Y,
                                       PIXEL_SIZE, PIXEL_SIZE))
             pygame.display.flip()
@@ -43,9 +50,13 @@ class Screen:
     def display_character_info(character_info_view):
         character_info_view.display()
 
-    def render_text_values(self, text_value, x, x_offset, y, y_offset):
+    @staticmethod
+    def display_map():
+        Screen.instance.display_map()
+
+    def render_text_values(self, text_value, x, x_offset, y, y_offset, font_color=green, background_color=dark_blue):
         font = pygame.font.Font(font_name, font_size)
-        text = font.render(text_value, True, green, dark_blue)
+        text = font.render(text_value, True, font_color, background_color)
 
         text_rect = self.__get_positioned_text(text, x, x_offset, y, y_offset)
 
@@ -55,7 +66,7 @@ class Screen:
         X, Y = self.__calculate_text_coordinates_with_offset(x, x_offset, y, y_offset)
 
         text_rect = text.get_rect()
-        text_rect.center = (X // 2, Y // 2)
+        text_rect.center = (X, Y)
 
         return text_rect
 
