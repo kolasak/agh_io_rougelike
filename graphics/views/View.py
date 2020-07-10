@@ -1,11 +1,9 @@
 from abc import ABC
 
-from graphics.Screen import Screen
-
 
 class View(ABC):
     def __init__(self):
-        self.screen = Screen(None)
+        pass
 
-    def display(self):
+    def display(self, screen):
         pass

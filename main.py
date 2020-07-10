@@ -4,10 +4,9 @@ from character.items.Laptop import Laptop
 from character.items.Sword import Sword
 from configuration import load_configuration
 from graphics.Screen import Screen
-from graphics.views.CharacterInfoView import CharacterInfoView
 
 
-def get_example_character_info_view():
+def get_example_character_info():
     character_info = CharacterInfo(100, 0, 2)
 
     laptop = Laptop()
@@ -18,20 +17,14 @@ def get_example_character_info_view():
     character_info.add_item(laptop)
     character_info.add_item(sword)
 
-    return CharacterInfoView(character_info)
+    return character_info
 
 
 if __name__ == "__main__":
     game_map = load_configuration()
-    first_stage = game_map[0]
+    fields = game_map[0]
 
-    screen = Screen(first_stage)
-
-    character_info_view = get_example_character_info_view()
-    screen.display_character_info(character_info_view)
-    screen.animate()  # todo: add threads??
+    screen = Screen(fields, get_example_character_info())
 
     for row in game_map:
         print(row)
-
-    screen.create_and_show_example_character_info()

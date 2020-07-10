@@ -12,17 +12,17 @@ class CharacterInfoView(View):
             self.character_info.exp) + ', STRENGTH: ' + str(self.character_info.strength)
         self.items_text_info = 'ITEMS: '
 
-    def display(self):
-        self.__display_general_character_info()
-        self.__display_items_info()
+    def display(self, screen):
+        self.__display_general_character_info(screen)
+        self.__display_items_info(screen)
 
         pygame.display.update()
 
-    def __display_general_character_info(self):
-        self.screen.render_text_values(self.general_text_info, 320, 0, 50, 0)
+    def __display_general_character_info(self, screen):
+        screen.render_text_values(self.general_text_info, 320, 0, 50, 0)
 
-    def __display_items_info(self):
-        self.screen.render_text_values(self.items_text_info, 320, 220, 50, 70)
+    def __display_items_info(self, screen):
+        screen.render_text_values(self.items_text_info, 320, 220, 50, 70)
 
         for i, item in enumerate(self.character_info.items):
-            item.display(self.screen.display_surface, i * item_display_offset)
+            item.display(screen.display_surface, i * item_display_offset)
