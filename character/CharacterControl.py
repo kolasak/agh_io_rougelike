@@ -43,6 +43,13 @@ class CharacterControl:
                 Screen.Screen.render_character(old_x, old_y, character_info_view.character_info.x, character_info_view.character_info.y, character_info_view.character_img, Direction.SOUTH)
             else:
                 print("not passable")
+        if event_key == K_e:
+            field = fields[character_info_view.character_info.x][character_info_view.character_info.y]
+            if field.item is not None:
+                character_info_view.character_info.add_item(field.get_item())
+                Screen.Screen.render_character(character_info_view.character_info.x, character_info_view.character_info.y, character_info_view.character_info.x, character_info_view.character_info.y, character_info_view.character_img, Direction.SOUTH)
+                Screen.Screen.display_character_info(character_info_view)
+
 
     @staticmethod
     def check_if_passable(field):

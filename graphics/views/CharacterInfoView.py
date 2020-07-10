@@ -16,6 +16,12 @@ class CharacterInfoView(View):
         self.items_text_info = 'ITEMS: '
         self.character_img = pygame.image.load(CHARACTER_IMAGE_PATH)
 
+    @property
+    def get_general_text_info(self):
+        return 'HP: ' + str(self.character_info.hp) + ', EXP: ' + str(
+            self.character_info.exp) + ', STRENGTH: ' + str(self.character_info.strength)
+
+
     def display(self):
         self.__display_general_character_info()
         self.__display_items_info()
@@ -24,7 +30,7 @@ class CharacterInfoView(View):
         pygame.display.update()
 
     def __display_general_character_info(self):
-        self.screen.render_text_values(self.general_text_info, 320, 0, 50, 0)
+        self.screen.render_text_values(self.get_general_text_info, 320, 0, 50, 0)
 
     def __display_items_info(self):
         self.screen.render_text_values(self.items_text_info, 320, 220, 50, 70)
