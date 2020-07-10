@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
     character_info_view = get_example_character_info_view()
     screen.display_character_info(character_info_view)
-    screen.animate()  # todo: add threads??
+    screen.animate(character_info_view)  # todo: add threads??
 
     for row in game_map:
         print(row)
