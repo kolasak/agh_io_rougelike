@@ -1,7 +1,5 @@
 from character.CharacterInfo import CharacterInfo
-from character.items.Backpack import Backpack
-from character.items.Laptop import Laptop
-from character.items.Sword import Sword
+from character.items.Key import Key
 from configuration import load_configuration
 from graphics.Screen import Screen
 from graphics.views.CharacterInfoView import CharacterInfoView
@@ -10,13 +8,15 @@ from graphics.views.CharacterInfoView import CharacterInfoView
 def get_example_character_info_view():
     character_info = CharacterInfo(100, 0, 2)
 
-    laptop = Laptop()
-    backpack = Backpack()
-    sword = Sword()
+    # laptop = Laptop()
+    # backpack = Backpack()
+    # sword = Sword()
+    #
+    # character_info.add_item(backpack)
+    # character_info.add_item(laptop)
+    # character_info.add_item(sword)
 
-    character_info.add_item(backpack)
-    character_info.add_item(laptop)
-    character_info.add_item(sword)
+    character_info.add_item(Key())
 
     return CharacterInfoView(character_info)
 

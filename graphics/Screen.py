@@ -21,6 +21,10 @@ class Screen:
                     pygame.draw.rect(Screen.display_surface, fields[x][y].colour,
                                      (x * PIXEL_SIZE + SCREEN_PADDING_X / 2, y * PIXEL_SIZE + SCREEN_PADDING_Y,
                                       PIXEL_SIZE, PIXEL_SIZE))
+                    if fields[x][y].item is not None:
+                        img = pygame.image.load(fields[x][y].item.img_path)
+                        Screen.display_surface.blit(img, (x * PIXEL_SIZE + SCREEN_PADDING_X / 2, y * PIXEL_SIZE + SCREEN_PADDING_Y))
+
             pygame.display.flip()
 
     instance = None

@@ -1,6 +1,7 @@
 import pygame
 
 from fixtures.dimens import item_display_offset
+from graphics.views.ItemView import ItemView
 from graphics.views.View import View
 
 
@@ -25,4 +26,5 @@ class CharacterInfoView(View):
         self.screen.render_text_values(self.items_text_info, 320, 220, 50, 70)
 
         for i, item in enumerate(self.character_info.items):
-            item.display(self.screen.display_surface, i * item_display_offset)
+            item_view = ItemView(item.img_path)
+            item_view.display(self.screen.display_surface, i * item_display_offset)
