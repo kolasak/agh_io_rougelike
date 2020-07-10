@@ -1,12 +1,13 @@
 from character.CharacterInfo import CharacterInfo
 from character.items.Key import Key
 from configuration import load_configuration
+from fixtures.dimens import initial_character_display_coord_x, initial_character_display_coord_y
 from graphics.Screen import Screen
 from graphics.views.CharacterInfoView import CharacterInfoView
 
 
 def get_example_character_info_view():
-    character_info = CharacterInfo(100, 0, 2)
+    character_info = CharacterInfo(100, 0, 2, initial_character_display_coord_x, initial_character_display_coord_y)
 
     # laptop = Laptop()
     # backpack = Backpack()

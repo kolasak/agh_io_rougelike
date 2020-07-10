@@ -16,6 +16,7 @@ class CharacterInfoView(View):
     def display(self):
         self.__display_general_character_info()
         self.__display_items_info()
+        self.__display_character()
 
         pygame.display.update()
 
@@ -28,3 +29,6 @@ class CharacterInfoView(View):
         for i, item in enumerate(self.character_info.items):
             item_view = ItemView(item.img_path)
             item_view.display(self.screen.display_surface, i * item_display_offset)
+
+    def __display_character(self):
+        self.screen.render_character(self, self.character_info.x, self.character_info.y)

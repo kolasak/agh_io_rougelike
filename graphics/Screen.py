@@ -39,6 +39,7 @@ class Screen:
     def animate(self):
         while not self.exit_pressed:
             for event in pygame.event.get():
+
                 if event.type == pygame.QUIT:
                     self.exit_pressed = True
         pygame.quit()
@@ -46,6 +47,11 @@ class Screen:
     @staticmethod
     def display_character_info(character_info_view):
         character_info_view.display()
+
+    @staticmethod
+    def render_character(self, x, y):
+        img = pygame.image.load(CHARACTER_IMAGE_PATH)
+        Screen.display_surface.blit(img, (x * PIXEL_SIZE + SCREEN_PADDING_X / 2, y * PIXEL_SIZE + SCREEN_PADDING_Y))
 
     def render_text_values(self, text_value, x, x_offset, y, y_offset):
         font = pygame.font.Font(font_name, font_size)

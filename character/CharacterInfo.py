@@ -3,11 +3,13 @@ from fixtures.constants import max_items_count
 
 
 class CharacterInfo:
-    def __init__(self, hp, exp, strength):
+    def __init__(self, hp, exp, strength, x, y):
         self._hp = hp
         self._exp = exp
         self._strength = strength
         self._items = []
+        self._x = x
+        self._y = y
 
     @property
     def hp(self):
@@ -20,6 +22,14 @@ class CharacterInfo:
     @property
     def exp(self):
         return self._exp
+
+    @property
+    def x(self):
+        return self._x
+
+    @property
+    def y(self):
+        return self._y
 
     @exp.setter
     def exp(self, value):
