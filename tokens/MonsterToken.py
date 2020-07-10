@@ -1,4 +1,5 @@
 from tokens.Token import Token
+from controllers.BattleController import BattleController
 
 
 class MonsterToken(Token):
@@ -6,6 +7,6 @@ class MonsterToken(Token):
         # set atributes
         pass
 
-    def interact(self):
-        # fight
-        pass
+    def interact(self, character_info=None):
+        controller = BattleController(character_info, None)
+        return controller.start_battle()
