@@ -52,6 +52,7 @@ def parse_items(map, json_items):
         map[key['y']][key['x']].put_item(key_obj)
         gate = map[key['gate_y']][key['gate_x']]
         if isinstance(gate, GateField):
+            print("Key" + key_obj.id)
             gate.set_key_id(key_obj.id)
 
     for item in json_items['boost']:
