@@ -2,6 +2,8 @@ import json
 
 import numpy as np
 
+from character.items.BoostItem import BoostItem
+from character.items.Key import Key
 from fields import *
 
 
@@ -18,6 +20,7 @@ def load_configuration(json_path='config.json'):
         game_map = parse_map(json_stage['map'])
         game_map = parse_monsters(game_map, json_stage['monsters'])
         game_map = parse_npcs(game_map, json_stage['npcs'])
+        game_map = parse_items(game_map, json_stage['items'])
         stages.append(game_map)
     return stages
 
@@ -40,6 +43,21 @@ def parse_map(json_map):
 
 def parse_monsters(map, json_monsters):
     # add monsters to map
+    return map
+
+
+def parse_items(map, json_items):
+    for key in json_items['keys']:
+        key_obj = Key()
+        map[key['y']][key['x']].put_item(key_obj)
+        gate = map[key['gate_y']][key['gate_x']]
+        if isinstance(gate, GateField):
+            gate.set_key_id(key_obj.id)
+
+    for item in json_items['boost']:
+        item_obj = BoostItem(item['name'], item['strength'], item['image'])
+        map[item['y']][item['x']].put_item(item_obj)
+
     return map
 
 

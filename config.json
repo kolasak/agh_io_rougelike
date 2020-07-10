@@ -33,6 +33,39 @@
       "monsters": {
       },
       "npcs": {
+      },
+      "items": {
+        "keys": [
+          {
+            "x": 2,
+            "y": 17,
+            "gate_x": 23,
+            "gate_y": 17
+          }
+        ],
+        "boost": [
+          {
+            "name": "Sword",
+            "image": "images/items/sword.png",
+            "strength": 1,
+            "x": 5,
+            "y": 10
+          },
+          {
+            "name": "Laptop",
+            "image": "images/items/laptop.png",
+            "strength": 2,
+            "x": 7,
+            "y": 14
+          },
+          {
+            "name": "Backpack",
+            "image": "images/items/backpack.png",
+            "strength": 2,
+            "x": 10,
+            "y": 14
+          }
+        ]
       }
     }
   ]
