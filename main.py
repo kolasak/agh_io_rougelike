@@ -33,3 +33,5 @@ if __name__ == "__main__":
 
     for row in game_map:
         print(row)
+
+    screen.create_and_show_example_character_info()
