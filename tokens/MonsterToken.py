@@ -36,5 +36,5 @@ class MonsterToken(Token):
 #TODO: set rewards
 
     def interact(self, character_info=None):
-        controller = BattleController(character_info, self, None)
+        controller = BattleController(character_info, self)
         return controller.start_battle_view()
