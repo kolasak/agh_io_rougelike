@@ -8,5 +8,5 @@ class BossToken(MonsterToken):
         # additional properties
 
     def interact(self, character_info=None):
-        controller = BattleController(character_info, None, True)
-        return controller.start_battle()
+        controller = BattleController(character_info, self, True)
+        return controller.start_battle_view()
