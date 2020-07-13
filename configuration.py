@@ -2,11 +2,17 @@ import json
 
 import numpy as np
 
+from character.items.BoostItem import BoostItem
+from character.items.Key import Key
 from fields import *
 
 
 # Returns map as array of objects.
 # For these who dont know np.array is just array in C or Java, so you can get or set element by index/es.
+from tokens.MonsterToken import MonsterToken
+from tokens.NpcToken import NpcToken
+
+
 def load_configuration(json_path='config.json'):
     with open(json_path) as json_file:
         json_data = json.load(json_file)
@@ -18,6 +24,7 @@ def load_configuration(json_path='config.json'):
         game_map = parse_map(json_stage['map'])
         game_map = parse_monsters(game_map, json_stage['monsters'])
         game_map = parse_npcs(game_map, json_stage['npcs'])
+        game_map = parse_items(game_map, json_stage['items'])
         stages.append(game_map)
     return stages
 
@@ -39,10 +46,40 @@ def parse_map(json_map):
 
 
 def parse_monsters(map, json_monsters):
-    # add monsters to map
+    for monster in json_monsters['data']:
+        new_monster = MonsterToken(monster['hp'], monster['strength'], monster['image'], monster['xp'])
+        item = monster['item']
+        if item is not None:
+            item_obj = None
+            if item['type'] == 'boost':
+                item_obj = BoostItem(item['name'], item['strength'], item['image'])
+            elif item['type'] == 'key':
+                item_obj = Key()
+                gate = map[item['gate_y']][item['gate_x']]
+                if isinstance(gate, GateField):
+                    gate.set_key_id(item_obj.id)
+            new_monster.item = item_obj
+        map[monster['y']][monster['x']].put_token(new_monster)
+    return map
+
+
+def parse_items(map, json_items):
+    for key in json_items['keys']:
+        key_obj = Key()
+        map[key['y']][key['x']].put_item(key_obj)
+        gate = map[key['gate_y']][key['gate_x']]
+        if isinstance(gate, GateField):
+            gate.set_key_id(key_obj.id)
+
+    for item in json_items['boost']:
+        item_obj = BoostItem(item['name'], item['strength'], item['image'])
+        map[item['y']][item['x']].put_item(item_obj)
+
     return map
 
 
 def parse_npcs(map, json_npcs):
-    # add npcs to map
+    for npc in json_npcs:
+        new_npc = NpcToken(npc['name'], npc['image'], npc['attributes'], npc['dialog'])
+        map[npc['y']][npc['x']].put_token(new_npc)
     return map

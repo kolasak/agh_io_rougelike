@@ -1,3 +1,5 @@
 PIXEL_SIZE = 30
 SCREEN_PADDING_X = 60
 SCREEN_PADDING_Y = 90
+
+CHARACTER_IMAGE_PATH = "images/items/character.png"

@@ -1,9 +1,15 @@
-class CharacterInfo():
-    def __init__(self, hp, exp, strength):
+from character.items.BoostItem import BoostItem
+from fixtures.constants import max_items_count
+
+
+class CharacterInfo:
+    def __init__(self, hp, exp, strength, x, y):
         self._hp = hp
         self._exp = exp
         self._strength = strength
         self._items = []
+        self._x = x
+        self._y = y
 
     @property
     def hp(self):
@@ -16,6 +22,22 @@ class CharacterInfo():
     @property
     def exp(self):
         return self._exp
+
+    @property
+    def x(self):
+        return self._x
+
+    @x.setter
+    def x(self, value):
+        self._x = value
+
+    @property
+    def y(self):
+        return self._y
+
+    @y.setter
+    def y(self, value):
+        self._y = value
 
     @exp.setter
     def exp(self, value):
@@ -34,7 +56,12 @@ class CharacterInfo():
         return self._items
 
     def add_item(self, item):
-        self._items.append(item)
+        if len(self._items) < max_items_count:
+            self._items.append(item)
+            if isinstance(item, BoostItem):
+                self.strength += item.strength
 
     def remove_item(self, item):
         self._items.remove(item)
+        if isinstance(item, BoostItem):
+            self.strength -= item.strength

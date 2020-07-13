@@ -1,6 +1,9 @@
 import pygame
 
+from enums.Direction import Direction
 from fixtures.dimens import item_display_offset
+from graphics.settings import CHARACTER_IMAGE_PATH
+from graphics.views.ItemView import ItemView
 from graphics.views.View import View
 
 
@@ -11,18 +14,30 @@ class CharacterInfoView(View):
         self.general_text_info = 'HP: ' + str(self.character_info.hp) + ', EXP: ' + str(
             self.character_info.exp) + ', STRENGTH: ' + str(self.character_info.strength)
         self.items_text_info = 'ITEMS: '
+        self.character_img = pygame.image.load(CHARACTER_IMAGE_PATH)
 
-    def display(self, screen):
-        self.__display_general_character_info(screen)
-        self.__display_items_info(screen)
+    @property
+    def get_general_text_info(self):
+        return 'HP: ' + str(self.character_info.hp) + ', EXP: ' + str(
+            self.character_info.exp) + ', STRENGTH: ' + str(self.character_info.strength)
+
+
+    def display(self):
+        self.__display_general_character_info()
+        self.__display_items_info()
+        self.__display_character()
 
         pygame.display.update()
 
-    def __display_general_character_info(self, screen):
-        screen.render_text_values(self.general_text_info, 320, 0, 50, 0)
+    def __display_general_character_info(self):
+        self.screen.render_text_values(self.get_general_text_info, 320, 0, 50, 0)
 
-    def __display_items_info(self, screen):
-        screen.render_text_values(self.items_text_info, 320, 220, 50, 70)
+    def __display_items_info(self):
+        self.screen.render_text_values(self.items_text_info, 320, 220, 50, 70)
 
         for i, item in enumerate(self.character_info.items):
-            item.display(screen.display_surface, i * item_display_offset)
+            item_view = ItemView(item.img_path)
+            item_view.display(self.screen.display_surface, i * item_display_offset)
+
+    def __display_character(self):
+        self.screen.render_character(self.character_info.x, self.character_info.y, self.character_info.x, self.character_info.y, self.character_img, Direction.SOUTH)
