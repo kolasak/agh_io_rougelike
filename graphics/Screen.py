@@ -2,6 +2,7 @@ import pygame
 
 from character.CharacterControl import CharacterControl
 from fixtures.constants import font_name, font_size, green, dark_blue
+from fixtures.constants import *
 from graphics.settings import *
 from pygame.locals import KEYDOWN
 
@@ -25,6 +26,12 @@ class Screen:
                 for y in range(0, height):
                     Screen.draw_field(x, y, fields)
 
+
+        def display_map(self):
+            Screen.display_surface.fill(dark_blue)
+            for x in range(0, self.width):
+                for y in range(0, self.height):
+                    Screen.draw_field(x, y, self.fields)
             pygame.display.flip()
 
     instance = None
@@ -59,9 +66,13 @@ class Screen:
         Screen.display_surface.blit(img, (x * PIXEL_SIZE + SCREEN_PADDING_X / 2, y * PIXEL_SIZE + SCREEN_PADDING_Y))
         pygame.display.update()
 
-    def render_text_values(self, text_value, x, x_offset, y, y_offset):
+    @staticmethod
+    def display_map():
+        Screen.instance.display_map()
+
+    def render_text_values(self, text_value, x, x_offset, y, y_offset, font_color=green, background_color=dark_blue):
         font = pygame.font.Font(font_name, font_size)
-        text = font.render(text_value, True, green, dark_blue)
+        text = font.render(text_value, True, font_color, background_color)
 
         text_rect = self.__get_positioned_text(text, x, x_offset, y, y_offset)
 

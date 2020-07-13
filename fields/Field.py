@@ -6,9 +6,9 @@ class Field:
         self.passable = passable
         self.character = character
 
-    def interact(self):
+    def interact(self, character_info=None):
         if self.token is not None:
-            self.token.interact()
+            self.token.interact(character_info)
 
     def put_item(self, item):
         self.item = item

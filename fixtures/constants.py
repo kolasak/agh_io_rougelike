@@ -5,6 +5,8 @@ font_size = 20
 # colours
 green = (0, 255, 0)
 dark_blue = (22, 9, 117)
+black = (0, 0, 0)
+white = (255, 255, 255)
 
 # character info
 # todo: add max character attributes values e.g. strength?

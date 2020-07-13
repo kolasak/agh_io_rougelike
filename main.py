@@ -1,9 +1,12 @@
+import pygame
 from character.CharacterInfo import CharacterInfo
 from character.items.Key import Key
 from configuration import load_configuration
 from fixtures.dimens import initial_character_display_coord_x, initial_character_display_coord_y
 from graphics.Screen import Screen
 from graphics.views.CharacterInfoView import CharacterInfoView
+from graphics.views.BattleView import BattleView
+from tokens.BossToken import BossToken
 
 
 def get_example_character_info_view():
