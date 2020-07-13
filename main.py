@@ -27,7 +27,7 @@ if __name__ == "__main__":
     game_map = load_configuration()
     fields = game_map[0]
 
-    screen = Screen(first_stage)
+    screen = Screen(fields)
 
     character_info_view = get_example_character_info_view()
     screen.display_character_info(character_info_view)
