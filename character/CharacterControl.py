@@ -28,7 +28,10 @@ class CharacterControl:
             if token is not None:
                 result = token.interact(character_info_view.character_info)
                 if result:
+                    if token.item is not None:
+                        fields[x][y].put_item(token.item)
                     fields[x][y].remove_token()
+
                 Screen.Screen.display_map()
                 character_info_view.display()
             elif CharacterControl.check_if_passable(fields[x][y]):
