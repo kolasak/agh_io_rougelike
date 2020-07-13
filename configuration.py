@@ -10,6 +10,7 @@ from fields import *
 # Returns map as array of objects.
 # For these who dont know np.array is just array in C or Java, so you can get or set element by index/es.
 from tokens.MonsterToken import MonsterToken
+from tokens.NpcToken import NpcToken
 
 
 def load_configuration(json_path='config.json'):
@@ -78,5 +79,7 @@ def parse_items(map, json_items):
 
 
 def parse_npcs(map, json_npcs):
-    # add npcs to map
+    for npc in json_npcs:
+        new_npc = NpcToken(npc['name'], npc['image'], npc['attributes'], npc['dialog'])
+        map[npc['y']][npc['x']].put_token(new_npc)
     return map
