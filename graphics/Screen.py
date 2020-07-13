@@ -5,6 +5,9 @@ from fixtures.constants import font_name, font_size, green, dark_blue
 from graphics.settings import *
 from pygame.locals import KEYDOWN
 
+from tokens.MonsterToken import MonsterToken
+
+
 class Screen:
     pygame = None
     exit_pressed = False
@@ -80,6 +83,11 @@ class Screen:
         if fields[x][y].item is not None:
             img = pygame.image.load(fields[x][y].item.img_path)
             Screen.display_surface.blit(img, (x * PIXEL_SIZE + SCREEN_PADDING_X / 2, y * PIXEL_SIZE + SCREEN_PADDING_Y))
+
+        if fields[x][y].token is not None and isinstance(fields[x][y].token, MonsterToken):
+            img = pygame.image.load(fields[x][y].token.image)
+            Screen.display_surface.blit(img, (x * PIXEL_SIZE + SCREEN_PADDING_X / 2, y * PIXEL_SIZE + SCREEN_PADDING_Y))
+
 
     @staticmethod
     def __calculate_text_coordinates_with_offset(x, x_offset, y, y_offset):
