@@ -20,8 +20,6 @@ def get_example_character_info_view():
     # character_info.add_item(laptop)
     # character_info.add_item(sword)
 
-    character_info.add_item(Key())
-
     return CharacterInfoView(character_info)
 
 
