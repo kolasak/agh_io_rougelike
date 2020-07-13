@@ -19,9 +19,11 @@ class BattleController:
         return self.character
 
     def battle_result(self):
-        self.character._hp -= 1
-        self.character._exp += 5
-        return ['You win!', 'You lost 1 hp and gained 5 exp.']
+        hp_loss = 5 - self.boost
+        exp_gain = 5
+        self.character._hp -= hp_loss
+        self.character._exp += exp_gain
+        return ['You win!', f'You lost {hp_loss} hp and gained {exp_gain} exp.']
 
     def accept_answer(self):
         self.boost = 3

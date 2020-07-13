@@ -48,6 +48,3 @@ if __name__ == "__main__":
                     character_info_view = CharacterInfoView(character_info)
                     screen.display_map()
                     character_info_view.display()
-
-    for row in game_map:
-        print(row)

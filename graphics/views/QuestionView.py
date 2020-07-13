@@ -16,6 +16,8 @@ class QuestionView(View):
 
     def display(self):
         self.screen.display_surface.fill(black)
+        self.render_line_center("If you answer this question correctly you will get boost.", self.line)
+        self.line += 1
         self.render_line_center(self.question_text, self.line)
         self.line += 1
         for answer_text in self.answers.values():
@@ -26,7 +28,7 @@ class QuestionView(View):
 
     def success(self):
         self.controller.accept_answer()
-        self.render_line_center("Correct answer.", self.line)
+        self.render_line_center("Correct answer. Attack increased.", self.line)
 
     def failure(self):
         self.controller.reject_answer()
