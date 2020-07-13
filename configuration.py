@@ -46,7 +46,7 @@ def parse_map(json_map):
 
 def parse_monsters(map, json_monsters):
     for monster in json_monsters['data']:
-        new_monster = MonsterToken(monster['strength'], monster['hp'], monster['image'])
+        new_monster = MonsterToken(monster['strength'], monster['hp'], monster['image'], monster['xp'])
         map[monster['y']][monster['x']].put_token(new_monster)
     return map
 

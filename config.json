@@ -37,6 +37,7 @@
             "y": 4,
             "strength": 5,
             "hp": 50,
+            "xp": 10,
             "image": "images/monsters/monster_1.png"
           }
         ]

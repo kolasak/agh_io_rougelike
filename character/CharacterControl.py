@@ -39,6 +39,12 @@ class CharacterControl:
         if event_key == K_r:
             fields[character_info_view.character_info.x][character_info_view.character_info.y].interact()
 
+        new_field_token = fields[character_info_view.character_info.x][character_info_view.character_info.y].get_token()
+        if new_field_token is not None:
+            new_field_token.interact(character_info_view.character_info)
+            Screen.Screen.display_map()
+            character_info_view.display()
+
     @staticmethod
     def check_if_passable(field):
         return field.passable

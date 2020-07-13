@@ -6,8 +6,6 @@ from fixtures.constants import *
 from graphics.settings import *
 from pygame.locals import KEYDOWN
 
-from tokens.MonsterToken import MonsterToken
-
 
 class Screen:
     pygame = None
@@ -17,13 +15,16 @@ class Screen:
     class __Screen:
         def __init__(self, fields):
             Screen.pygame = pygame.init()
-            width, height = fields.shape
+            self.width, self.height = fields.shape
             self.fields = fields
 
-            Screen.display_surface = pygame.display.set_mode(
-                (width * PIXEL_SIZE + SCREEN_PADDING_X, height * PIXEL_SIZE + SCREEN_PADDING_Y))
-            for x in range(0, width):
-                for y in range(0, height):
+            Screen.screen_width = self.width * PIXEL_SIZE + SCREEN_PADDING_X
+            Screen.screen_height = self.height * PIXEL_SIZE + SCREEN_PADDING_Y
+
+            Screen.display_surface = pygame.display.set_mode((Screen.screen_width, Screen.screen_height))
+
+            for x in range(0, self.width):
+                for y in range(0, self.height):
                     Screen.draw_field(x, y, fields)
 
 
@@ -95,7 +96,7 @@ class Screen:
             img = pygame.image.load(fields[x][y].item.img_path)
             Screen.display_surface.blit(img, (x * PIXEL_SIZE + SCREEN_PADDING_X / 2, y * PIXEL_SIZE + SCREEN_PADDING_Y))
 
-        if fields[x][y].token is not None and isinstance(fields[x][y].token, MonsterToken):
+        if fields[x][y].token is not None:
             img = pygame.image.load(fields[x][y].token.image)
             Screen.display_surface.blit(img, (x * PIXEL_SIZE + SCREEN_PADDING_X / 2, y * PIXEL_SIZE + SCREEN_PADDING_Y))
 
