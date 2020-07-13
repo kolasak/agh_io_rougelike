@@ -47,6 +47,17 @@ def parse_map(json_map):
 def parse_monsters(map, json_monsters):
     for monster in json_monsters['data']:
         new_monster = MonsterToken(monster['strength'], monster['hp'], monster['image'], monster['xp'])
+        item = monster['item']
+        if item is not None:
+            item_obj = None
+            if item['type'] == 'boost':
+                item_obj = BoostItem(item['name'], item['strength'], item['image'])
+            elif item['type'] == 'key':
+                item_obj = Key()
+                gate = map[item['gate_y']][item['gate_x']]
+                if isinstance(gate, GateField):
+                    gate.set_key_id(item_obj.id)
+            new_monster.item = item_obj
         map[monster['y']][monster['x']].put_token(new_monster)
     return map
 

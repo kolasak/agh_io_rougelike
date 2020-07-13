@@ -8,6 +8,7 @@ class MonsterToken(Token):
         self._strength = strength
         self._image = image
         self._xp = xp
+        self._item = None
 
     @property
     def image(self):
@@ -32,6 +33,14 @@ class MonsterToken(Token):
     @strength.setter
     def strength(self, value):
         self._hp = value
+
+    @property
+    def item(self):
+        return self._item
+
+    @item.setter
+    def item(self, item):
+        self._item = item
 
 #TODO: set rewards
 
