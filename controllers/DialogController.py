@@ -26,7 +26,7 @@ class DialogController:
         if not npcResponseIds:
             return None
         self.npcLineId = random.choice(npcResponseIds)
-        return self.playerLines[self.npcLineId]['text']
+        return self.npcLines[self.npcLineId]['text']
 
     def getPlayerLines(self):
         playerResponseIds = self.npcLines[self.playerLineId]['responses']
@@ -65,4 +65,4 @@ class DialogController:
         return self.hasResponse
 
     def dialog_result(self):
-        return ['No to pogadane.']
+        return None

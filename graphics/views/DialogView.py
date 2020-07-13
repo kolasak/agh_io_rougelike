@@ -46,5 +46,6 @@ class DialogView(View):
             npcLine = self.controller.getNpcNextLine()
             if not npcLine:
                 break
+            self.render_line_center(npcLine, 4)
         
         time.sleep(1)
