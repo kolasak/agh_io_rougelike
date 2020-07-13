@@ -20,8 +20,6 @@ def get_example_character_info_view():
     # character_info.add_item(laptop)
     # character_info.add_item(sword)
 
-    character_info.add_item(Key())
-
     return CharacterInfoView(character_info)
 
 
@@ -35,5 +33,3 @@ if __name__ == "__main__":
     screen.display_character_info(character_info_view)
     screen.animate(character_info_view)  # todo: add threads??
 
-    for row in game_map:
-        print(row)

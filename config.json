@@ -35,10 +35,16 @@
           {
             "x": 3,
             "y": 4,
-            "strength": 5,
-            "hp": 50,
+            "strength": 1,
+            "hp": 5,
             "xp": 10,
-            "image": "images/monsters/monster_1.png"
+            "image": "images/monsters/monster_1.png",
+            "item": {
+              "name": "Sword",
+              "type": "boost",
+              "image": "images/items/sword.png",
+              "strength": 1
+            }
           }
         ]
       },
@@ -86,13 +92,6 @@
           }
         ],
         "boost": [
-          {
-            "name": "Sword",
-            "image": "images/items/sword.png",
-            "strength": 1,
-            "x": 5,
-            "y": 10
-          },
           {
             "name": "Laptop",
             "image": "images/items/laptop.png",

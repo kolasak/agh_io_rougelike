@@ -22,9 +22,13 @@ class Field:
         self.token = token
 
     def get_token(self):
-        picked_token = self.token
+        return self.token
+
+    def remove_token(self):
         self.token = None
-        return picked_token
+        # picked_token = self.token
+        # self.token = None
+        # return picked_token
 
     def __str__(self):
         return self.character
