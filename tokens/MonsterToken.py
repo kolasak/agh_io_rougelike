@@ -13,8 +13,28 @@ class MonsterToken(Token):
     def image(self):
         return self._image
 
+    @property
+    def strength(self):
+        return self._strength
+
+    @property
+    def xp(self):
+        return self._xp
+
+    @property
+    def hp(self):
+        return self._hp
+
+    @hp.setter
+    def hp(self, value):
+        self._hp = value
+
+    @strength.setter
+    def strength(self, value):
+        self._hp = value
+
 #TODO: set rewards
 
     def interact(self, character_info=None):
-        controller = BattleController(character_info, None)
-        return controller.start_battle()
+        controller = BattleController(character_info, self, None)
+        return controller.start_battle_view()

@@ -31,7 +31,18 @@ class BattleView(View):
         time.sleep(1)
         if self.question_view:
             self.question_view.display()
-        end_messages = self.controller.battle_result()
+        self.controller.start_battle()
+
+    def invoke_battle_won(self):
+        end_messages = self.controller.battle_won_result()
+        self.screen.display_surface.fill(black)
+        for line, message in enumerate(end_messages, 1):
+            self.render_line_center(message, line)
+            time.sleep(1)
+        time.sleep(1)
+
+    def invoke_battle_lost(self):
+        end_messages = self.controller.battle_lost_result()
         self.screen.display_surface.fill(black)
         for line, message in enumerate(end_messages, 1):
             self.render_line_center(message, line)
