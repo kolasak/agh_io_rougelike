@@ -12,6 +12,7 @@ class BattleView(View):
         super().__init__()
         self.controller = controller
         self.question_view = question_view
+        self.line = 3
         self.battle_init_actions = {
             pygame.K_y: self.display_battle,
             pygame.K_n: self.withdraw_from_battle,
@@ -32,6 +33,11 @@ class BattleView(View):
         if self.question_view:
             self.question_view.display()
         self.controller.start_battle()
+
+    def display_round(self, text):
+        self.render_line_center(text, self.line)
+        self.line += 1
+        time.sleep(1)
 
     def invoke_battle_won(self):
         end_messages = self.controller.battle_won_result()

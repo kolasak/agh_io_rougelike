@@ -46,7 +46,7 @@ def parse_map(json_map):
 
 def parse_monsters(map, json_monsters):
     for monster in json_monsters['data']:
-        new_monster = MonsterToken(monster['strength'], monster['hp'], monster['image'], monster['xp'])
+        new_monster = MonsterToken(monster['hp'], monster['strength'], monster['image'], monster['xp'])
         item = monster['item']
         if item is not None:
             item_obj = None

@@ -23,10 +23,7 @@ class Screen:
 
             Screen.display_surface = pygame.display.set_mode((Screen.screen_width, Screen.screen_height))
 
-            for x in range(0, self.width):
-                for y in range(0, self.height):
-                    Screen.draw_field(x, y, fields)
-
+            self.display_map()
 
         def display_map(self):
             Screen.display_surface.fill(dark_blue)
@@ -62,8 +59,6 @@ class Screen:
     def render_character(old_x, old_y, x, y, img, direction):
         Screen.draw_field(old_x, old_y, Screen.instance.fields)
         img = pygame.transform.rotate(img, direction.value * 90)
-        print("render character: x: " + str(x))
-        print("render character: y: " + str(y))
         Screen.display_surface.blit(img, (x * PIXEL_SIZE + SCREEN_PADDING_X / 2, y * PIXEL_SIZE + SCREEN_PADDING_Y))
         pygame.display.update()
 
@@ -99,7 +94,6 @@ class Screen:
         if fields[x][y].token is not None:
             img = pygame.image.load(fields[x][y].token.image)
             Screen.display_surface.blit(img, (x * PIXEL_SIZE + SCREEN_PADDING_X / 2, y * PIXEL_SIZE + SCREEN_PADDING_Y))
-
 
     @staticmethod
     def __calculate_text_coordinates_with_offset(x, x_offset, y, y_offset):
