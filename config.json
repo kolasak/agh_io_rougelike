@@ -76,7 +76,7 @@
               {"id": 2, "response": [2], "text": "Maybe i could help you with that.", "requirement": {"staredSadRobotQuest": false}},
               {"id": 3, "response": [], "text": "Yeah, it sounds ghastly. Bye"},
               {"id": 4, "response": [3], "text": "Sure. Let me get them for you", "requirement": {"staredSadRobotQuest": false}, "action": {"startedSadRobotQuest": true}},
-              {"id": 5, "response": [4], "text": "I meant something more along the lines of cheering you up."},
+              {"id": 5, "response": [], "text": "I meant something more along the lines of cheering you up."},
               {"id": 6, "response": [], "text": "I brought you processors. Hope they'll help", "requirement": {"startedSadRobotQuest": true}}
             ]
           }
