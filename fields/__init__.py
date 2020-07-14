@@ -7,6 +7,7 @@ from .TownField import TownField
 from .WallField import WallField
 from .WaterField import WaterField
 from .ForestField import ForestField
+from .PassageField import PassageField
 
 CHARACTER_TO_FIELD = {
     'E': EndStageField,
@@ -16,5 +17,6 @@ CHARACTER_TO_FIELD = {
     'T': TownField,
     'V': WallField,
     'W': WaterField,
-    'F': ForestField
+    'F': ForestField,
+    'P': PassageField
 }
