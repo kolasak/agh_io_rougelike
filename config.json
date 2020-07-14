@@ -31,7 +31,7 @@
         ]
       },
       "monsters": {
-        "data": [
+        "basic": [
           {
             "x": 3,
             "y": 4,
@@ -46,7 +46,23 @@
               "strength": 1
             }
           }
-        ]
+        ],
+        "bosses": [
+          {
+            "x": 7,
+            "y": 4,
+            "strength": 16,
+            "hp": 75,
+            "xp": 10,
+            "image": "images/bosses/boss1.png",
+            "item": {
+              "name": "Sword",
+              "type": "boost",
+              "image": "images/items/sword.png",
+              "strength": 1
+            }
+          }
+      ]
       },
       "npcs": [
         {

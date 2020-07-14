@@ -9,6 +9,7 @@ from fields import *
 
 # Returns map as array of objects.
 # For these who dont know np.array is just array in C or Java, so you can get or set element by index/es.
+from tokens.BossToken import BossToken
 from tokens.MonsterToken import MonsterToken
 from tokens.NpcToken import NpcToken
 
@@ -46,20 +47,14 @@ def parse_map(json_map):
 
 
 def parse_monsters(map, json_monsters):
-    for monster in json_monsters['data']:
+    for monster in json_monsters['basic']:
         new_monster = MonsterToken(monster['hp'], monster['strength'], monster['image'], monster['xp'])
-        item = monster['item']
-        if item is not None:
-            item_obj = None
-            if item['type'] == 'boost':
-                item_obj = BoostItem(item['name'], item['strength'], item['image'])
-            elif item['type'] == 'key':
-                item_obj = Key()
-                gate = map[item['gate_y']][item['gate_x']]
-                if isinstance(gate, GateField):
-                    gate.set_key_id(item_obj.id)
-            new_monster.item = item_obj
+        new_monster.item = _get_item(map, monster['item'])
         map[monster['y']][monster['x']].put_token(new_monster)
+    for boss in json_monsters['bosses']:
+        new_boss = BossToken(boss['hp'], boss['strength'], boss['image'], boss['xp'])
+        new_boss.item = _get_item(map, boss['item'])
+        map[boss['y']][boss['x']].put_token(new_boss)
     return map
 
 
@@ -83,3 +78,13 @@ def parse_npcs(map, json_npcs):
         new_npc = NpcToken(npc['name'], npc['image'], npc['attributes'], npc['dialog'])
         map[npc['y']][npc['x']].put_token(new_npc)
     return map
+
+def _get_item(map, item):
+    item_obj = None
+    if item is not None:
+        if item['type'] == 'boost':
+            item_obj = BoostItem(item['name'], item['strength'], item['image'])
+        elif item['type'] == 'key':
+            item_obj = Key()
+            gate = map[item['gate_y']][item['gate_x']]
+    return item_obj
