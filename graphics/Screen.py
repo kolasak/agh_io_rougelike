@@ -1,7 +1,7 @@
 import pygame
+from pygame.locals import KEYDOWN
 
-from character.CharacterControl import CharacterControl
-from fixtures.constants import font_name, font_size, green, dark_blue
+from character.CharacterController import CharacterController
 from fixtures.constants import *
 from graphics.settings import *
 from pygame.locals import KEYDOWN
@@ -15,7 +15,6 @@ class Screen:
     game_map = None
     screen_width = None
     screen_height = None
-    display_surface = None
     instance = None
 
     class __Screen:
@@ -49,8 +48,8 @@ class Screen:
                 if event.type == pygame.QUIT:
                     Screen.exit_pressed = True
                 elif event.type == KEYDOWN:
-                    CharacterControl.execute_character_movement(event.key, character_info_view, Screen.instance.fields)
-
+                    CharacterController.execute_character_movement(event.key, character_info_view,
+                                                                   Screen.instance.fields)
         pygame.quit()
 
     @staticmethod

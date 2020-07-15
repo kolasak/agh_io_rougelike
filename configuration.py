@@ -5,8 +5,6 @@ import numpy as np
 from character.items.BoostItem import BoostItem
 from character.items.Key import Key
 from fields import *
-
-
 # Returns map as array of objects.
 # For these who dont know np.array is just array in C or Java, so you can get or set element by index/es.
 from gameplay.Question import Question
@@ -14,7 +12,6 @@ from gameplay.QuestionContainer import QuestionContainer
 from tokens.BossToken import BossToken
 from tokens.MonsterToken import MonsterToken
 from tokens.NpcToken import NpcToken
-
 
 MAX_QUESTION_ANSWERS = 5
 
@@ -104,7 +101,7 @@ def parse_questions(riddles):
     for riddle in riddles:
         question = Question(riddle['question'])
         for answer in riddle['answers']:
-            Question.add_answer(question,answer)
+            Question.add_answer(question, answer)
             if answer == riddle['correct']:
                 Question.add_correct(question, answer)
         QuestionContainer.getInstance().add_question(question)
@@ -170,6 +167,7 @@ def parse_npcs(map, json_npcs):
         new_npc = NpcToken(npc['name'], npc['image'], npc['attributes'], npc['dialog'])
         map[npc['y']][npc['x']].put_token(new_npc)
     return map
+
 
 def _get_item(map, item):
     item_obj = None

@@ -1,4 +1,4 @@
-from pygame.locals import KEYDOWN, K_w, K_a, K_s, K_d, K_e, K_r
+from pygame.locals import K_w, K_a, K_s, K_d, K_e, K_r
 
 from character.items.Key import Key
 from enums.Direction import Direction
@@ -6,7 +6,7 @@ from fields import GateField, RoadField
 from graphics import Screen
 
 
-class CharacterControl:
+class CharacterController:
     def __init__(self):
         pass
 
@@ -36,7 +36,7 @@ class CharacterControl:
 
                 Screen.Screen.display_map()
                 character_info_view.display()
-            elif CharacterControl.check_if_passable(fields[x][y]):
+            elif CharacterController.check_if_passable(fields[x][y]):
                 character_info_view.character_info.x = x
                 character_info_view.character_info.y = y
                 Screen.Screen.render_character(old_x, old_y, x, y, character_info_view.character_img,
