@@ -1,5 +1,6 @@
 import pygame
 
+from enums.Direction import Direction
 from fields.Field import Field
 from graphics.Screen import Screen
 from graphics.views.CharacterInfoView import CharacterInfoView
@@ -25,4 +26,5 @@ class PassageField(Field):
             character_info._y = self.next_y
             Screen.instance.fields = self.room
             Screen.display_map()
+            Screen.display_character(character_info, Direction.SOUTH)
             pygame.display.update()
