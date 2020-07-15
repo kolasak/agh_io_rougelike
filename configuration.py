@@ -57,18 +57,22 @@ def bind_passages(game_map, passages_map, map_height, map_width, room_height, ro
         "W": (0, -1),
         "E": (0, 1)
     }
-    for x in range(map_height):
-        for y in range(map_width):
-            passages = passages_map[x][y]
+    for current_room_position_x in range(map_height):
+        for current_room_position_y in range(map_width):
+            passages = passages_map[current_room_position_x][current_room_position_y]
             for passage in passages:
                 passage_type = get_passage_type(passage, room_height, room_width)
-                n_x, n_y = passage_vector[passage_type]
-                n_x += x
-                n_y += y
-                for n_passage in passages_map[n_x][n_y]:
-                    if get_passage_type(n_passage, room_height, room_width) == reverse_passage_type[passage_type]:
-                        p_x, p_y = passage
-                        game_map[x][y][p_x][p_y].bind(game_map[n_x][n_y], n_passage)
+                next_room_position_x, next_room_position_y = passage_vector[passage_type]
+                next_room_position_x += current_room_position_x
+                next_room_position_y += current_room_position_y
+                for next_passage in passages_map[next_room_position_x][next_room_position_y]:
+                    if get_passage_type(next_passage, room_height, room_width) == reverse_passage_type[passage_type]:
+                        current_room_x, current_room_y = passage
+                        next_room_x, next_room_y = next_passage
+                        next_room_x -= current_room_position_x
+                        next_room_y -= current_room_position_y
+                        game_map[current_room_position_x][current_room_position_y][current_room_x][current_room_y]\
+                            .bind(game_map[next_room_position_x][next_room_position_y], (next_room_x, next_room_y))
 
 
 def get_passage_type(passage, room_height, room_width):

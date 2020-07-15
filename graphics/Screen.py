@@ -5,6 +5,7 @@ from fixtures.constants import font_name, font_size, green, dark_blue
 from fixtures.constants import *
 from graphics.settings import *
 from pygame.locals import KEYDOWN
+from graphics.settings import CHARACTER_IMAGE_PATH
 
 
 class Screen:
@@ -60,6 +61,15 @@ class Screen:
     def render_character(old_x, old_y, x, y, img, direction):
         Screen.draw_field(old_x, old_y, Screen.instance.fields)
         img = pygame.transform.rotate(img, direction.value * 90)
+        Screen.display_surface.blit(img, (x * PIXEL_SIZE + SCREEN_PADDING_X / 2, y * PIXEL_SIZE + SCREEN_PADDING_Y))
+        pygame.display.update()
+
+    @staticmethod
+    def display_character(character_info, direction):
+        x = character_info.x
+        y = character_info.y
+        img = pygame.image.load(CHARACTER_IMAGE_PATH)
+        #img = pygame.transform.rotate(img, direction.value * 90)
         Screen.display_surface.blit(img, (x * PIXEL_SIZE + SCREEN_PADDING_X / 2, y * PIXEL_SIZE + SCREEN_PADDING_Y))
         pygame.display.update()
 
