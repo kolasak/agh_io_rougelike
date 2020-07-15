@@ -60,6 +60,8 @@ class CharacterInfo:
             self._items.append(item)
             if isinstance(item, BoostItem):
                 self.strength += item.strength
+            return True
+        return False
 
     def remove_item(self, item):
         self._items.remove(item)

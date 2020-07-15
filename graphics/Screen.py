@@ -4,7 +4,6 @@ from pygame.locals import KEYDOWN
 from character.CharacterController import CharacterController
 from fixtures.constants import *
 from graphics.settings import *
-from pygame.locals import KEYDOWN
 from graphics.settings import CHARACTER_IMAGE_PATH
 
 
@@ -68,7 +67,7 @@ class Screen:
         x = character_info.x
         y = character_info.y
         img = pygame.image.load(CHARACTER_IMAGE_PATH)
-        #img = pygame.transform.rotate(img, direction.value * 90)
+        # img = pygame.transform.rotate(img, direction.value * 90)
         Screen.display_surface.blit(img, (x * PIXEL_SIZE + SCREEN_PADDING_X / 2, y * PIXEL_SIZE + SCREEN_PADDING_Y))
         pygame.display.update()
 

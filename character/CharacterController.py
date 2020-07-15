@@ -3,10 +3,13 @@ from pygame.locals import K_w, K_a, K_s, K_d, K_e, K_r
 from character.items.Key import Key
 from enums.Direction import Direction
 from fields import GateField, RoadField
+from fixtures.constants import max_items_count
 from graphics import Screen
 
 
 class CharacterController:
+    cannot_add_more_items_msg = f"You cannot add more items than {max_items_count}"
+
     def __init__(self):
         pass
 
@@ -51,7 +54,10 @@ class CharacterController:
         elif event_key == K_e:
             field = fields[character_info_view.character_info.x][character_info_view.character_info.y]
             if field.item is not None:
-                character_info_view.character_info.add_item(field.get_item())
+                if not character_info_view.character_info.add_item(field.get_item()):  # fixme
+                    # character_info_view.render_line_center(CharacterController.cannot_add_more_items_msg, 4)
+                    pass
+
                 Screen.Screen.render_character(character_info_view.character_info.x,
                                                character_info_view.character_info.y,
                                                character_info_view.character_info.x,
