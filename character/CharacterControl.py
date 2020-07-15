@@ -41,6 +41,7 @@ class CharacterControl:
                 character_info_view.character_info.y = y
                 Screen.Screen.render_character(old_x, old_y, x, y, character_info_view.character_img,
                                                move_keys[event_key][2])
+                fields[x][y].interact(character_info_view.character_info)
             elif isinstance(fields[x][y], GateField):
                 keys_ids = [x.id for x in character_info_view.character_info.items if isinstance(x, Key)]
                 if fields[x][y].key_id in keys_ids:

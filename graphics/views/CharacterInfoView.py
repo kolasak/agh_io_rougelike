@@ -5,6 +5,7 @@ from fixtures.dimens import item_display_offset
 from graphics.settings import CHARACTER_IMAGE_PATH
 from graphics.views.ItemView import ItemView
 from graphics.views.View import View
+from graphics.Screen import Screen
 
 
 class CharacterInfoView(View):
@@ -30,14 +31,14 @@ class CharacterInfoView(View):
         pygame.display.update()
 
     def __display_general_character_info(self):
-        self.screen.render_text_values(self.get_general_text_info, 320, 0, 50, 0)
+        Screen.render_text_values(self.get_general_text_info, 320, 0, 50, 0)
 
     def __display_items_info(self):
-        self.screen.render_text_values(self.items_text_info, 320, 220, 50, 70)
+        Screen.render_text_values(self.items_text_info, 320, 220, 50, 70)
 
         for i, item in enumerate(self.character_info.items):
             item_view = ItemView(item.img_path)
             item_view.display(self.screen.display_surface, i * item_display_offset)
 
     def __display_character(self):
-        self.screen.render_character(self.character_info.x, self.character_info.y, self.character_info.x, self.character_info.y, self.character_img, Direction.SOUTH)
+        Screen.render_character(self.character_info.x, self.character_info.y, self.character_info.x, self.character_info.y, self.character_img, Direction.SOUTH)

@@ -7,8 +7,8 @@ from graphics.Screen import Screen
 
 class View(ABC):
     def __init__(self):
-        self.screen = Screen(None)
-        self.x_center = self.screen.screen_width // 2
+        self.screen = Screen(None, None)
+        self.x_center = Screen.screen_width // 2
 
     def display(self):
         pass
