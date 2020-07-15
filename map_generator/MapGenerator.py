@@ -62,7 +62,8 @@ def create_room(height, width):
             "map": maze
         },
         "monsters": {
-            "data": []
+            "basic": [],
+            "bosses": []
         },
         "npcs": [],
         "items": {
