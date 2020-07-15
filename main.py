@@ -1,9 +1,9 @@
 import pygame
 from character.CharacterInfo import CharacterInfo
 from character.items.Key import Key
-from configuration import load_map, load_questions
+from configuration import load_map, load_questions, load_multi_room_map
 from fixtures.dimens import initial_character_display_coord_x, initial_character_display_coord_y
-from graphics.Screen import Screen
+from graphics.ScreenInstance import ScreenInstance
 from graphics.views.CharacterInfoView import CharacterInfoView
 from graphics.views.BattleView import BattleView
 from tokens.BossToken import BossToken
@@ -24,11 +24,11 @@ def get_example_character_info_view():
 
 
 if __name__ == "__main__":
-    game_map = load_map()
+    game_map = load_multi_room_map('map_generator/generated_map.json')
     load_questions()
-    fields = game_map[0]
+    fields = game_map[0][0]
 
-    screen = Screen(fields)
+    screen = ScreenInstance(fields)
 
     character_info_view = get_example_character_info_view()
     screen.display_character_info(character_info_view)

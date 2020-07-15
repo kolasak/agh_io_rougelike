@@ -18,6 +18,24 @@ from tokens.NpcToken import NpcToken
 
 MAX_QUESTION_ANSWERS = 5
 
+def load_multi_room_map(json_path='config.json'):
+    with open(json_path) as json_file:
+        json_data = json.load(json_file)
+        json_file.close()
+
+    map_height = len(json_data)
+    map_width = len(json_data[0])
+    game_map = np.empty((map_height, map_width), dtype=object)
+
+    for row_of_rooms in json_data:
+        for room in row_of_rooms:
+            room_map = parse_map(room['map'])
+            room_map = parse_monsters(room_map, room['monsters'])
+            room_map = parse_npcs(room_map, room['npcs'])
+            room_map = parse_items(room_map, room['items'])
+            x, y = room["position"]
+            game_map[x][y] = room_map
+    return game_map
 
 def load_map(json_path='config.json'):
     with open(json_path) as json_file:
