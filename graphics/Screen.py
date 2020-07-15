@@ -11,6 +11,10 @@ class Screen:
     pygame = None
     exit_pressed = False
     display_surface = None
+    game_map = None
+    screen_width = None
+    screen_height = None
+    display_surface = None
 
     class __Screen:
         def __init__(self, fields):
@@ -20,9 +24,7 @@ class Screen:
 
             Screen.screen_width = self.width * PIXEL_SIZE + SCREEN_PADDING_X
             Screen.screen_height = self.height * PIXEL_SIZE + SCREEN_PADDING_Y
-
             Screen.display_surface = pygame.display.set_mode((Screen.screen_width, Screen.screen_height))
-
             self.display_map()
 
         def display_map(self):
@@ -34,18 +36,18 @@ class Screen:
 
     instance = None
 
-    def __init__(self, fields):
+    def __new__(cls, fields, game_map):
         if not Screen.instance:
             Screen.instance = Screen.__Screen(fields)
-            # self.exit_pressed = False
-        # else: todo: ???
-        #     Screen.instance.fields = fields
+            Screen.game_map = game_map
+        return Screen.instance
 
-    def animate(self, character_info_view):
-        while not self.exit_pressed:
+    @staticmethod
+    def animate(character_info_view):
+        while not Screen.exit_pressed:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    self.exit_pressed = True
+                    Screen.exit_pressed = True
                 elif event.type == KEYDOWN:
                     CharacterControl.execute_character_movement(event.key, character_info_view, Screen.instance.fields)
 
@@ -66,16 +68,18 @@ class Screen:
     def display_map():
         Screen.instance.display_map()
 
-    def render_text_values(self, text_value, x, x_offset, y, y_offset, font_color=green, background_color=dark_blue):
+    @staticmethod
+    def render_text_values(text_value, x, x_offset, y, y_offset, font_color=green, background_color=dark_blue):
         font = pygame.font.Font(font_name, font_size)
         text = font.render(text_value, True, font_color, background_color)
 
-        text_rect = self.__get_positioned_text(text, x, x_offset, y, y_offset)
+        text_rect = Screen.__get_positioned_text(text, x, x_offset, y, y_offset)
 
-        self.display_surface.blit(text, text_rect)
+        Screen.display_surface.blit(text, text_rect)
 
-    def __get_positioned_text(self, text, x, x_offset, y, y_offset):
-        X, Y = self.__calculate_text_coordinates_with_offset(x, x_offset, y, y_offset)
+    @staticmethod
+    def __get_positioned_text(text, x, x_offset, y, y_offset):
+        X, Y = Screen.__calculate_text_coordinates_with_offset(x, x_offset, y, y_offset)
 
         text_rect = text.get_rect()
         text_rect.center = (X // 2, Y // 2)

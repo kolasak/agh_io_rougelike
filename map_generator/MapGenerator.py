@@ -106,36 +106,40 @@ def set_passages(rooms, map_height, map_width):
             room_map = room["map"]["map"]
 
             if l_x != 0:
-                pos = random.randint(1, room_width-1)
+                pos = random.randint(2, room_width-3)
                 while True:
                     if room_map[1][pos] != "V":
                         room_map[0][pos] = "P"
                         break
-                    pos = (pos+1) % room_width
+                    pos = (pos+1) % (room_width - 2)
+                    if pos < 2: pos = 2
 
             if l_x != map_height-1:
-                pos = random.randint(1, room_width-1)
+                pos = random.randint(2, room_width-2)
                 while True:
                     if room_map[room_height-2][pos] != "V":
                         room_map[room_height-1][pos] = "P"
                         break
-                    pos = (pos+1) % room_width
+                    pos = (pos + 1) % (room_width - 2)
+                    if pos < 2: pos = 2
 
             if l_y != 0:
-                pos = random.randint(1, room_height - 1)
+                pos = random.randint(2, room_height - 2)
                 while True:
                     if room_map[pos][1] != "V":
                         room_map[pos][0] = "P"
                         break
-                    pos = (pos + 1) % room_width
+                    pos = (pos + 1) % (room_height - 2)
+                    if pos < 2: pos = 2
 
             if l_y != map_width - 1:
-                pos = random.randint(1, room_height - 1)
+                pos = random.randint(2, room_height - 2)
                 while True:
                     if room_map[pos][room_width - 2] != "V":
                         room_map[pos][room_width - 1] = "P"
                         break
-                    pos = (pos + 1) % room_width
+                    pos = (pos + 1) % (room_height - 2)
+                    if pos < 2: pos = 2
 
 
 def is_addable(array, width, height, x, y):
@@ -157,31 +161,31 @@ def is_addable(array, width, height, x, y):
 if __name__ == "__main__":
     creator_config = {
         "rooms": (2, 3),
-        "room_size": (25, 25),
+        "room_size": (20, 20),
         "locations": [
             {
                 "room": (0, 0),
                 "type": "F",
                 "size": 30,
-                "center": (10, 15)
+                "center": (8, 8)
             },
             {
                 "room": (0, 2),
                 "type": "W",
                 "size": 20,
-                "center": (20, 5)
+                "center": (5, 5)
             },
             {
                 "room": (1, 1),
                 "type": "T",
                 "size": 6,
-                "center": (13, 13)
+                "center": (6, 9)
             },
             {
                 "room": (1, 2),
                 "type": "F",
                 "size": 30,
-                "center": (18, 20)
+                "center": (4, 3)
             }
 
         ]
@@ -191,3 +195,4 @@ if __name__ == "__main__":
 
     with open('generated_map.json', 'w') as f:
         json.dump(generated_map, f, cls=NumpyEncoder)
+    print(generated_map)

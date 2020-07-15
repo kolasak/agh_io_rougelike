@@ -3,7 +3,7 @@ from character.CharacterInfo import CharacterInfo
 from character.items.Key import Key
 from configuration import load_map, load_questions, load_multi_room_map
 from fixtures.dimens import initial_character_display_coord_x, initial_character_display_coord_y
-from graphics.ScreenInstance import ScreenInstance
+from graphics.Screen import Screen
 from graphics.views.CharacterInfoView import CharacterInfoView
 from graphics.views.BattleView import BattleView
 from tokens.BossToken import BossToken
@@ -28,9 +28,9 @@ if __name__ == "__main__":
     load_questions()
     fields = game_map[0][0]
 
-    screen = ScreenInstance(fields)
+    screen = Screen(fields, game_map)
 
     character_info_view = get_example_character_info_view()
-    screen.display_character_info(character_info_view)
-    screen.animate(character_info_view)  # todo: add threads??
+    Screen.display_character_info(character_info_view)
+    Screen.animate(character_info_view)  # todo: add threads??
 
