@@ -126,14 +126,14 @@
             "name": "HPPotion",
             "image": "images/items/hp_potion.png",
             "strength": 2,
-            "x": 3,
+            "x": 12,
             "y": 14
           },
           {
             "name": "LifeRenewalPotion",
             "image": "images/items/life_renewal_potion.png",
             "strength": 5,
-            "x": 1,
+            "x": 14,
             "y": 14
           }
         ]

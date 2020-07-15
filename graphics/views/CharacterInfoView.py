@@ -37,7 +37,7 @@ class CharacterInfoView(View):
 
         for i, item in enumerate(self.character_info.items):
             item_view = ItemView(item.img_path)
-            item_view.display(Screen.display_surface, i * item_display_offset)
+            item_view.display(Screen.display_surface, i * item_display_offset + 10)
 
     def __display_character(self):
         Screen.render_character(self.character_info.x, self.character_info.y, self.character_info.x,

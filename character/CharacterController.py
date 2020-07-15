@@ -1,3 +1,4 @@
+from pygame.constants import K_m
 from pygame.locals import K_w, K_a, K_s, K_d, K_e, K_r
 
 from character.items.Key import Key
@@ -66,6 +67,14 @@ class CharacterController:
                 Screen.Screen.display_character_info(character_info_view)
         elif event_key == K_r:
             fields[character_info_view.character_info.x][character_info_view.character_info.y].interact()
+        elif event_key == K_m:
+            healing_item = character_info_view.character_info.find_healing_item()
+            if healing_item:
+                if not character_info_view.character_info.heal_with_item(healing_item):
+                    text = "Your health is excellent! There's no need to heal"
+                else:
+                    text = 'You have been healed!'
+                Screen.Screen.render_text_values_for_n_seconds(character_info_view, text, 700, 0, 800, 0)
 
     @staticmethod
     def check_if_passable(field):

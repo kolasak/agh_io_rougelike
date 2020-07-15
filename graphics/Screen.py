@@ -1,3 +1,5 @@
+import time
+
 import pygame
 from pygame.locals import KEYDOWN
 
@@ -74,6 +76,22 @@ class Screen:
     @staticmethod
     def display_map():
         Screen.instance.display_map()
+
+    @staticmethod
+    def repaint_screen():
+        fields = Screen.instance.fields
+        Screen.instance = None
+        Screen.instance = Screen(fields, Screen.game_map)
+
+    @staticmethod
+    def render_text_values_for_n_seconds(character_info_view, text_value, x, x_offset, y, y_offset, font_color=green,
+                                         background_color=dark_blue, nsec=1):
+        Screen.render_text_values(text_value, x, x_offset, y, y_offset, font_color, background_color)
+        pygame.display.flip()
+        time.sleep(nsec)
+        Screen.display_surface.fill(dark_blue)  # erases the entire screen surface
+        Screen.repaint_screen()
+        Screen.display_character_info(character_info_view)
 
     @staticmethod
     def render_text_values(text_value, x, x_offset, y, y_offset, font_color=green, background_color=dark_blue):
