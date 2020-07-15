@@ -5,6 +5,7 @@ from fixtures.constants import green, dark_blue, black
 from fixtures.dimens import item_display_offset
 from graphics.views.View import View
 from utils import keyboard_control
+from graphics.Screen import Screen
 
 
 class BattleView(View):
@@ -19,7 +20,7 @@ class BattleView(View):
         }
 
     def display(self):
-        self.screen.display_surface.fill(black)
+        Screen.display_surface.fill(black)
         self.render_line_center('Do you want to fight? (Y - yes, N - no)', 1)
         keyboard_control(self.battle_init_actions)
 
@@ -41,7 +42,7 @@ class BattleView(View):
 
     def invoke_battle_won(self):
         end_messages = self.controller.battle_won_result()
-        self.screen.display_surface.fill(black)
+        Screen.display_surface.fill(black)
         for line, message in enumerate(end_messages, 1):
             self.render_line_center(message, line)
             time.sleep(1)
@@ -49,7 +50,7 @@ class BattleView(View):
 
     def invoke_battle_lost(self):
         end_messages = self.controller.battle_lost_result()
-        self.screen.display_surface.fill(black)
+        Screen.display_surface.fill(black)
         for line, message in enumerate(end_messages, 1):
             self.render_line_center(message, line)
             time.sleep(1)
