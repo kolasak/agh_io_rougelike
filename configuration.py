@@ -9,12 +9,17 @@ from fields import *
 
 # Returns map as array of objects.
 # For these who dont know np.array is just array in C or Java, so you can get or set element by index/es.
+from gameplay.Question import Question
+from gameplay.QuestionContainer import QuestionContainer
 from tokens.BossToken import BossToken
 from tokens.MonsterToken import MonsterToken
 from tokens.NpcToken import NpcToken
 
 
-def load_configuration(json_path='config.json'):
+MAX_QUESTION_ANSWERS = 5
+
+
+def load_map(json_path='config.json'):
     with open(json_path) as json_file:
         json_data = json.load(json_file)
         json_file.close()
@@ -29,6 +34,24 @@ def load_configuration(json_path='config.json'):
         stages.append(game_map)
     return stages
 
+
+def parse_questions(riddles):
+    for riddle in riddles:
+        question = Question(riddle['question'])
+        for answer in riddle['answers']:
+            Question.add_answer(question,answer)
+            if answer == riddle['correct']:
+                Question.add_correct(question, answer)
+        QuestionContainer.getInstance().add_question(question)
+
+
+def load_questions(json_path='riddles.json'):
+    question_container = QuestionContainer.getInstance()
+    with open(json_path) as json_file:
+        json_data = json.load(json_file)
+        json_file.close()
+    parse_questions(json_data['riddles'])
+    return question_container
 
 def parse_map(json_map):
     width = json_map['width']

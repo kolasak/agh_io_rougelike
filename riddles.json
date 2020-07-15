@@ -3,178 +3,134 @@
 		{
 			"id": 0,
 			"question": "The binary system uses powers of:",
-			"a": "2",
-			"b": "10",
-			"c": "16",
-			"correct": "a"
+			"answers": ["2", "10", "16"],
+			"correct": "2"
 		},
 		{
 			"id": 1,
 			"question": "A computer program that converts assembly language to machine language is:",
-			"a": "Compiler",
-			"b": "Interpreter",
-			"c": "Assembler",
-			"correct": "c"
+			"answers": ["Compiler", "Interpreter", "Assembler"],
+			"correct": "Assembler"
 		},
 		{
 			"id": 2,
 			"question": "ASCII stands for",
-			"a": "American standard code for information interchange",
-			"b": "All purpose scientific code for information interchange",
-			"c": "American Scientific code for information interchange",
-			"correct": "a"
+			"answers": ["American standard code for information interchange", "All purpose scientific code for information interchange", "American Scientific code for information interchange"],
+			"correct": "American standard code for information interchange"
 		},
 		{
 			"id": 3,
 			"question": "The list of coded instructions is called",
-			"a": "Computer program",
-			"b": "Algorithm",
-			"c": "Flowchart",
-			"correct": "a"
+			"answers": ["Computer program", "Algorithm", "Flowchart"],
+			"correct": "Computer program"
 		},
 		{
 			"id": 4,
 			"question": "Which language was devised by Dr. Seymour Aubrey Papert?",
-			"a": "COBOL",
-			"b": "LOGO",
-			"c": "FORTRAN",
-			"correct": "b"
+			"answers": ["COBOL", "LOGO", "FORTRAN"],
+			"correct": "LOGO"
 		},
 		{
 			"id": 5,
 			"question": "The complete picture of data stored in database is known as",
-			"a": "Record",
-			"b": "Schema",
-			"c": "DBMS",
-			"correct": "b"
+			"answers": ["Record", "Schema", "DBMS"],
+			"correct": "Schema"
 		},
 		{
 			"id": 6,
 			"question": "Compilers and interpreters are themselves",
-			"a": "High-level language",
-			"b": "Codes",
-			"c": "Programs",
-			"correct": "c"
+			"answers": ["High-level language", "Codes", "Programs"],
+			"correct": "Programs"
 		},
 		{
 			"id": 7,
 			"question": "A billionth of a second is defined as a",
-			"a": "millisecond",
-			"b": "microsecond",
-			"c": "nanosecond",
-			"correct": "c"
+			"answers": ["millisecond", "microsecond", "nanosecond"],
+			"correct": "nanosecond"
 		},
 		{
 			"id": 8,
 			"question": "When was Apple Macintosh II microcomputer introduced in the market?",
-			"a": "1964",
-			"b": "1983",
-			"c": "1970",
-			"correct": "b"
+			"answers": ["1964", "1983", "1970"],
+			"correct": "1983"
 		},
 		{
 			"id": 9,
 			"question": "The arranging of data in a logical sequence is called:",
-			"a": "sorting",
-			"b": "classifying",
-			"c": "summarizing",
-			"correct": "a"
+			"answers": ["sorting", "classifying", "summarizing"],
+			"correct": "sorting"
 		},
 		{
 			"id": 10,
 			"question": "Who is the creator of the PASCAL language?",
-			"a": "Niklaus Wirth",
-			"b": "Basic Pascal",
-			"c": "Donald Knuth",
-			"correct": "a"
+			"answers": ["Niklaus Wirth", "Basic Pascal", "Donald Knuth"],
+			"correct": "Niklaus Wirth"
 		},
 		{
 			"id": 11,
 			"question": "Which type device is a piece of equipment that receives information from a CPU?",
-			"a": "Input",
-			"b": "Output",
-			"c": "CPU",
-			"correct": "b"
+			"answers": ["Input", "Output", "CPU"],
+			"correct": "Output"
 		},
 		{
 			"id": 12,
 			"question": "What is the language used by most of the DBMSs for helping their users to access data?",
-			"a": "High level language",
-			"b": "Query language",
-			"c": "4GL",
-			"correct": "b"
+			"answers": ["High level language", "Query language", "4GL"],
+			"correct": "Query language"
 		},
 		{
 			"id": 13,
 			"question": "In SQL, which command is used to make permanent changes made by statements issue since the beginning of a transaction?",
-			"a": "ZIP",
-			"b": "SAVE",
-			"c": "COMMIT",
-			"correct": "c"
+			"answers": ["ZIP", "SAVE", "COMMIT"],
+			"correct": "COMMIT"
 		},
 		{
 			"id": 14,
 			"question": "Periodically adding, changing and deleting file records is called file...",
-			"a": "updating",
-			"b": "upgrading",
-			"c": "restructuring",
-			"correct": "a"
+			"answers": ["updating", "upgrading", "restructuring"],
+			"correct": "updating"
 		},
 		{
 			"id": 15,
 			"question": "The relational model uses some unfamiliar terminology. A tuple is equivalent to a:",
-			"a": "record",
-			"b": "field",
-			"c": "file",
-			"correct": "a"
+			"answers": ["record", "field", "file"],
+			"correct": "record"
 		},
 		{
 			"id": 16,
 			"question": "Which command is used to remove an index from the database in SQL?",
-			"a": "DELETE INDEX",
-			"b": "DROP INDEX",
-			"c": "REMOVE INDEX",
-			"correct": "b"
+			"answers": ["DELETE INDEX", "DROP INDEX", "REMOVE INDEX"],
+			"correct": "DROP INDEX"
 		},
 		{
 			"id": 17,
 			"question": "What name is given to the collection of facts, items of information or data which are related in some way?",
-			"a": "Database",
-			"b": "Directory information",
-			"c": "Information tree",
-			"correct": "a"
+			"answers": ["Database", "Directory information", "Information tree"],
+			"correct": "Database"
 		},
 		{
 			"id": 18,
 			"question": "In SQL, which of the following is not a Data Manipulation Language Commands?",
-			"a": "DELETE",
-			"b": "UPDATE",
-			"c": "CREATE",
-			"correct": "c"
+			"answers": ["DELETE", "UPDATE", "CREATE"],
+			"correct": "CREATE"
 		},
 		{
 			"id": 19,
 			"question": "What is the abbreviation used for a software package that permits the users to create, retrieve and maintain records in a database?",
-			"a": "DASD",
-			"b": "EMMS",
-			"c": "DBMS",
-			"correct": "c"
+			"answers": ["DASD", "EMMS", "DBMS"],
+			"correct": "DBMS"
 		},
 		{
 			"id": 20,
 			"question": "Which command is used to select distinct subject (SUB) from the table (BOOK)?",
-			"a": "SELECT ALL FROM BOOK",
-			"b": "SELECT DISTINCT SUB FROM BOOK",
-			"c": "SELECT SUB FROM BOOK",
-			"correct": "b"
+			"answers": ["SELECT ALL FROM BOOK", "SELECT DISTINCT SUB FROM BOOK", "SELECT SUB FROM BOOK"],
+			"correct": "SELECT DISTINCT SUB FROM BOOK"
 		},
 		{
 			"id": 21,
 			"question": "Which of the following TCP/IP protocol is used for transferring electronic mail messages from one machine to another?",
-			"a": "FTP",
-			"b": "SNMP",
-			"c": "SMTP",
-			"correct": "c"
+			"answers": ["FTP", "SNMP", "SMTP"],
+			"correct": "SMTP"
 		}
 	]
 }

@@ -1,7 +1,7 @@
 import pygame
 from character.CharacterInfo import CharacterInfo
 from character.items.Key import Key
-from configuration import load_configuration
+from configuration import load_map, load_questions
 from fixtures.dimens import initial_character_display_coord_x, initial_character_display_coord_y
 from graphics.Screen import Screen
 from graphics.views.CharacterInfoView import CharacterInfoView
@@ -24,7 +24,8 @@ def get_example_character_info_view():
 
 
 if __name__ == "__main__":
-    game_map = load_configuration()
+    game_map = load_map()
+    load_questions()
     fields = game_map[0]
 
     screen = Screen(fields)

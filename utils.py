@@ -1,5 +1,6 @@
 import pygame
 from gameplay.Question import Question
+from gameplay.QuestionContainer import QuestionContainer
 
 
 def keyboard_control(actions):
@@ -20,5 +21,4 @@ def keyboard_control(actions):
 
 
 def load_random_question():
-    # todo loading from config
-    return Question('1001 (2) = ? (10)', {pygame.K_1: '(1) 9', pygame.K_2: '(2) 2'}, pygame.K_1)
+    return QuestionContainer.getInstance().pop_random_question()
