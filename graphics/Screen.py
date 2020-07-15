@@ -15,6 +15,7 @@ class Screen:
     screen_width = None
     screen_height = None
     display_surface = None
+    instance = None
 
     class __Screen:
         def __init__(self, fields):
@@ -33,8 +34,6 @@ class Screen:
                 for y in range(0, self.height):
                     Screen.draw_field(x, y, self.fields)
             pygame.display.flip()
-
-    instance = None
 
     def __new__(cls, fields, game_map):
         if not Screen.instance:
