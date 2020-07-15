@@ -33,7 +33,7 @@ class BattleController:
 
     def battle_lost_result(self):
         self.won = False
-        # self.character._exp += self.monster.xp
+        self.character.exp -= self.monster.xp
         return ['You lost!']
 
     def battle_player_strike(self):

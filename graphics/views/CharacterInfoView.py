@@ -2,10 +2,10 @@ import pygame
 
 from enums.Direction import Direction
 from fixtures.dimens import item_display_offset
+from graphics.Screen import Screen
 from graphics.settings import CHARACTER_IMAGE_PATH
 from graphics.views.ItemView import ItemView
 from graphics.views.View import View
-from graphics.Screen import Screen
 
 
 class CharacterInfoView(View):
@@ -21,7 +21,6 @@ class CharacterInfoView(View):
     def get_general_text_info(self):
         return 'HP: ' + str(self.character_info.hp) + ', EXP: ' + str(
             self.character_info.exp) + ', STRENGTH: ' + str(self.character_info.strength)
-
 
     def display(self):
         self.__display_general_character_info()
@@ -41,4 +40,5 @@ class CharacterInfoView(View):
             item_view.display(Screen.display_surface, i * item_display_offset)
 
     def __display_character(self):
-        Screen.render_character(self.character_info.x, self.character_info.y, self.character_info.x, self.character_info.y, self.character_img, Direction.SOUTH)
+        Screen.render_character(self.character_info.x, self.character_info.y, self.character_info.x,
+                                self.character_info.y, self.character_img, Direction.SOUTH)
