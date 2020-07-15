@@ -3,8 +3,11 @@ from numpy.core.defchararray import isnumeric
 
 from fixtures.constants import black
 from graphics.views.View import View
+from graphics.Screen import Screen
 
 import time
+
+
 
 class QuestionView(View):
     def __init__(self, question, controller):
@@ -17,7 +20,7 @@ class QuestionView(View):
         self.line = 1
 
     def display(self):
-        self.screen.display_surface.fill(black)
+        Screen.display_surface.fill(black)
         self.render_line_center(self.question_text, self.line)
         self.line += 1
         for answer_text in self.answers:
@@ -47,9 +50,9 @@ class QuestionView(View):
     def success(self):
         self.controller.accept_answer()
         self.render_line_center("Correct answer.", self.line)
-        self.screen.display_surface.fill(black)
+        Screen.display_surface.fill(black)
 
     def failure(self):
         self.controller.reject_answer()
         self.render_line_center("Wrong answer.", self.line)
-        self.screen.display_surface.fill(black)
+        Screen.display_surface.fill(black)

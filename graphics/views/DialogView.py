@@ -5,6 +5,7 @@ from fixtures.constants import green, dark_blue, black
 from fixtures.dimens import item_display_offset
 from graphics.views.View import View
 from utils import keyboard_control
+from graphics.Screen import Screen
 
 
 class DialogView(View):
@@ -20,7 +21,7 @@ class DialogView(View):
         }
 
     def display(self):
-        self.screen.display_surface.fill(black)
+        Screen.display_surface.fill(black)
         self.display_dialog()
 
     def display_dialog(self):
@@ -40,7 +41,7 @@ class DialogView(View):
             while (not self.controller.receivedResponse()):
                 keyboard_control(self.response_actions)
 
-            self.screen.display_surface.fill(black)
+            Screen.display_surface.fill(black)
             self.render_line_center(self.controller.npc.name(), 2)
 
             npcLine = self.controller.getNpcNextLine()

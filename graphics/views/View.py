@@ -14,5 +14,5 @@ class View(ABC):
         pass
 
     def render_line_center(self, text, line_no):
-        self.screen.render_text_values(text, self.x_center * 2, 0, line_no * 50, 0, background_color=black)
+        Screen.render_text_values(text, self.x_center * 2, 0, line_no * 50, 0, background_color=black)
         pygame.display.flip()
