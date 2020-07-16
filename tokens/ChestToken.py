@@ -10,7 +10,6 @@ class ChestToken(Token):
         self.shortened = False
         self.already_interacted = False
         self.code = [random.choice(['a', 'd']) for _ in range(difficulty)]
-        print(self.code)
 
     def interact(self, character_info=None):
         controller = ChestController(self)
