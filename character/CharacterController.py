@@ -1,11 +1,12 @@
 from pygame.constants import K_m
-from pygame.locals import K_w, K_a, K_s, K_d, K_e, K_r
+from pygame.locals import K_w, K_a, K_s, K_d, K_e, K_r, K_h
 
 from character.items.Key import Key
 from enums.Direction import Direction
 from fields import GateField, RoadField
 from fixtures.constants import max_items_count
 from graphics import Screen
+# from controllers.ManualController import ManualController
 
 
 class CharacterController:
@@ -75,6 +76,12 @@ class CharacterController:
                 else:
                     text = 'You have been healed!'
                 Screen.Screen.render_text_values_for_n_seconds(character_info_view, text, 700, 0, 800, 0)
+        elif event_key == K_h:
+            from controllers.ManualController import ManualController
+            controller = ManualController()
+            controller.display_manual()
+            Screen.Screen.display_map()
+            Screen.Screen.display_character_info(character_info_view)
 
     @staticmethod
     def check_if_passable(field):
