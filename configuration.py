@@ -33,7 +33,6 @@ def load_multi_room_map(json_path='config.json'):
             room_map = parse_npcs(room_map, room['npcs'])
             room_map = parse_items(room_map, room['items'])
             x, y = room["position"]
-            print(x, y)
             passages_map[x][y] = passages
             game_map[x][y] = room_map
     bind_passages(game_map, passages_map, map_height, map_width,
@@ -66,8 +65,9 @@ def bind_passages(game_map, passages_map, map_height, map_width, room_height, ro
                     if get_passage_type(next_passage, room_height, room_width) == reverse_passage_type[passage_type]:
                         current_room_x, current_room_y = passage
                         next_room_x, next_room_y = next_passage
-                        next_room_x -= current_room_position_x
-                        next_room_y -= current_room_position_y
+                        next_vector_x, next_vector_y = passage_vector[passage_type]
+                        next_room_x += next_vector_x
+                        next_room_y += next_vector_y
                         game_map[current_room_position_x][current_room_position_y][current_room_x][current_room_y]\
                             .bind(game_map[next_room_position_x][next_room_position_y], (next_room_x, next_room_y))
 
