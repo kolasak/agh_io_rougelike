@@ -10,6 +10,7 @@ from fields import *
 from gameplay.Question import Question
 from gameplay.QuestionContainer import QuestionContainer
 from tokens.BossToken import BossToken
+from tokens.ChestToken import ChestToken
 from tokens.MonsterToken import MonsterToken
 from tokens.NpcToken import NpcToken
 
@@ -93,6 +94,7 @@ def load_map(json_path='config.json'):
         game_map = parse_monsters(game_map, json_stage['monsters'])
         game_map = parse_npcs(game_map, json_stage['npcs'])
         game_map = parse_items(game_map, json_stage['items'])
+        game_map = parse_chests(game_map, json_stage['chests'])
         stages.append(game_map)
     return stages
 
@@ -162,6 +164,14 @@ def parse_items(map, json_items):
     return map
 
 
+def parse_chests(map, json_chests):
+    for chest in json_chests:
+        item = _get_item(map, chest['item'])
+        new_chest = ChestToken(item, chest['difficulty'])
+        map[chest['y']][chest['x']].put_token(new_chest)
+    return map
+
+
 def parse_npcs(map, json_npcs):
     for npc in json_npcs:
         new_npc = NpcToken(npc['name'], npc['image'], npc['attributes'], npc['dialog'])
@@ -177,4 +187,5 @@ def _get_item(map, item):
         elif item['type'] == 'key':
             item_obj = Key()
             gate = map[item['gate_y']][item['gate_x']]
+            gate.set_key_id(item_obj.id)
     return item_obj

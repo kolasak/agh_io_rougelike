@@ -8,7 +8,6 @@ from graphics.Screen import Screen
 import time
 
 
-
 class QuestionView(View):
     def __init__(self, question, controller):
         """correct answer has to be pygame keyboard constant"""
