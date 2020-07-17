@@ -22,7 +22,7 @@ class ManualView(View):
 
         self.render_line_center('GAME CONTROLS INFO', 1)
 
-        number_of_lines = 11
+        number_of_lines = 12
         line_height = Screen.screen_height // number_of_lines
 
         i = 1
@@ -57,17 +57,17 @@ class ManualView(View):
             img = pygame.image.load("images/" + path)
             if path.startswith("manual"):
                 if path == "manual/keyboard_key_1.png":
-                    Screen.display_surface.blit(img, (Screen.screen_width // 8 - 32, i * line_height + 10))
+                    Screen.display_surface.blit(img, (Screen.screen_width // 8 - 32, i * line_height + 40))
                     img = pygame.image.load("images/manual/navigate_minus.png")
-                    Screen.display_surface.blit(img, (Screen.screen_width // 8, i * line_height + 10))
+                    Screen.display_surface.blit(img, (Screen.screen_width // 8, i * line_height + 40))
                     img = pygame.image.load("images/manual/keyboard_key_7.png")
-                    Screen.display_surface.blit(img, (Screen.screen_width // 8 + 32, i * line_height + 10))
+                    Screen.display_surface.blit(img, (Screen.screen_width // 8 + 32, i * line_height + 40))
                 else:
-                    Screen.display_surface.blit(img, (Screen.screen_width // 8, i * line_height + 10))
+                    Screen.display_surface.blit(img, (Screen.screen_width // 8, i * line_height + 40))
             else:
-                Screen.display_surface.blit(img, (Screen.screen_width // 6, i * line_height + 10))
+                Screen.display_surface.blit(img, (Screen.screen_width // 6, i * line_height + 40))
             Screen.render_text_values(description, Screen.screen_width + 100, 0, 0,
-                                      i * Screen.screen_height * 2 // number_of_lines + 32 + 10, background_color=black)
+                                      i * Screen.screen_height * 2 // number_of_lines + 32 + 80, background_color=black)
 
         pygame.display.flip()
 
