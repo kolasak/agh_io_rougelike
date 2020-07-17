@@ -73,7 +73,7 @@ class CharacterController:
             item_number = int(pygame.key.name(event_key)) - 1
             item = character_info_view.character_info.items[item_number]
             if fields[character_info_view.character_info.x][character_info_view.character_info.y].item is None:
-                del character_info_view.character_info.items[item_number]
+                character_info_view.character_info.remove_item(item)
                 fields[character_info_view.character_info.x][character_info_view.character_info.y].put_item(item)
                 Screen.Screen.repaint_screen()
                 Screen.Screen.display_character_info(character_info_view)
