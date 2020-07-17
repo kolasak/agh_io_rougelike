@@ -32,7 +32,7 @@
           {
             "x": 4,
             "y": 2,
-            "strength": 2,
+            "strength": 10,
             "hp": 20,
             "xp": 20,
             "image": "images/monsters/monster_1.png",
@@ -102,7 +102,7 @@
               "name": "POV gun",
               "type": "boost",
               "image": "images/items/point_of_view_gun.png",
-              "strength": 42
+              "strength": 20
             }
           },
           "dialog": {
@@ -694,7 +694,7 @@
             "x": 9,
             "y": 16,
             "strength": 16,
-            "hp": 52,
+            "hp": 100,
             "xp": 100,
             "image": "images/bosses/boss1.png",
             "item": null
