@@ -1,12 +1,12 @@
 from character.CharacterInfo import CharacterInfo
-from configuration import load_map, load_questions, load_multi_room_map
+from configuration import load_map, load_questions
 from fixtures.dimens import initial_character_display_coord_x, initial_character_display_coord_y
 from graphics.Screen import Screen
 from graphics.views.CharacterInfoView import CharacterInfoView
 
 
 def get_example_character_info_view():
-    character_info = CharacterInfo(100, 0, 2, initial_character_display_coord_x, initial_character_display_coord_y)
+    character_info = CharacterInfo(70, 0, 2, initial_character_display_coord_x, initial_character_display_coord_y)
     # laptop = Laptop()
     # backpack = Backpack()
     # sword = Sword()
@@ -19,10 +19,17 @@ def get_example_character_info_view():
 
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     game_map = load_multi_room_map('config.json')
     fields = game_map[0][0]
     #game_map = load_map('config.json')
     #fields = game_map[0]
+=======
+    # game_map = load_multi_room_map('map_generator/generated_map.json')
+    # fields = game_map[0][0]
+    game_map = load_map('config.json')
+    fields = game_map[0]
+>>>>>>> af0f31f29669616a0ac6bed72b83cd0dae4171ec
     load_questions()
 
     screen = Screen(fields, game_map)

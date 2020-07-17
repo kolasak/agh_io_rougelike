@@ -1,12 +1,17 @@
-from pygame.locals import K_w, K_a, K_s, K_d, K_e, K_r
+from pygame.constants import K_m
+from pygame.locals import K_w, K_a, K_s, K_d, K_e, K_r, K_h
 
 from character.items.Key import Key
 from enums.Direction import Direction
 from fields import GateField, RoadField
+from fixtures.constants import max_items_count
 from graphics import Screen
+# from controllers.ManualController import ManualController
 
 
 class CharacterController:
+    cannot_add_more_items_msg = f"You cannot add more items than {max_items_count}"
+
     def __init__(self):
         pass
 
@@ -51,7 +56,10 @@ class CharacterController:
         elif event_key == K_e:
             field = fields[character_info_view.character_info.x][character_info_view.character_info.y]
             if field.item is not None:
-                character_info_view.character_info.add_item(field.get_item())
+                if not character_info_view.character_info.add_item(field.get_item()):  # fixme
+                    # character_info_view.render_line_center(CharacterController.cannot_add_more_items_msg, 4)
+                    pass
+
                 Screen.Screen.render_character(character_info_view.character_info.x,
                                                character_info_view.character_info.y,
                                                character_info_view.character_info.x,
@@ -60,6 +68,20 @@ class CharacterController:
                 Screen.Screen.display_character_info(character_info_view)
         elif event_key == K_r:
             fields[character_info_view.character_info.x][character_info_view.character_info.y].interact()
+        elif event_key == K_m:
+            healing_item = character_info_view.character_info.find_healing_item()
+            if healing_item:
+                if not character_info_view.character_info.heal_with_item(healing_item):
+                    text = "Your health is excellent! There's no need to heal"
+                else:
+                    text = 'You have been healed!'
+                Screen.Screen.render_text_values_for_n_seconds(character_info_view, text, 700, 0, 800, 0)
+        elif event_key == K_h:
+            from controllers.ManualController import ManualController
+            controller = ManualController()
+            controller.display_manual()
+            Screen.Screen.display_map()
+            Screen.Screen.display_character_info(character_info_view)
 
     @staticmethod
     def check_if_passable(field):

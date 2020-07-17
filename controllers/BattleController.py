@@ -1,6 +1,12 @@
+import time
+
+import pygame
+
+from fixtures.constants import black, life_renewal_potion_item_name
+from graphics.Screen import Screen
 from graphics.views.BattleView import BattleView
 from graphics.views.QuestionView import QuestionView
-from utils import load_random_question
+from utils import load_random_question, keyboard_control
 
 
 class BattleController:
@@ -15,6 +21,10 @@ class BattleController:
             self.battle_view = BattleView(self, self.question_view)
         else:
             self.battle_view = BattleView(self)
+        self.bring_character_back_to_life_action = {
+            pygame.K_y: self.bring_character_back_to_life,
+            pygame.K_n: self.end_game
+        }
 
     def start_battle_view(self):
         self.battle_view.display()
@@ -25,6 +35,14 @@ class BattleController:
             self.battle_player_strike()
             if self.monster.hp > 0:
                 self.battle_monster_strike()
+
+        if self.character.hp <= 0:
+            for item in self.character.items:
+                if item.name == life_renewal_potion_item_name:
+                    self.display_cure_character_text()
+                    break
+            else:
+                self.end_game()
 
     def battle_won_result(self):
         self.won = True
@@ -56,3 +74,22 @@ class BattleController:
 
     def reject_answer(self):
         self.boost = 0
+
+    def display_cure_character_text(self):
+        Screen.display_surface.fill(black)
+        self.battle_view.render_line_center(
+            f'You lost the battle, but you can save yourself because you have a magic HP Potion.', 1)
+        self.battle_view.render_line_center('Do you want to use it? (Y - yes, N - no)', 2)
+        keyboard_control(self.bring_character_back_to_life_action)
+        time.sleep(1)
+
+    def bring_character_back_to_life(self):
+        for item in self.character.items:
+            if item.name == life_renewal_potion_item_name:
+                self.character.hp = item.strength
+                self.character.remove_item(item)
+                pygame.display.update()
+                break
+
+    def end_game(self):
+        self.battle_view.display_game_ending(self.character.exp)

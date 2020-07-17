@@ -1,5 +1,5 @@
 from character.items.BoostItem import BoostItem
-from fixtures.constants import max_items_count
+from fixtures.constants import max_items_count, hp_potion_item_name, max_hp
 
 
 class CharacterInfo:
@@ -60,8 +60,23 @@ class CharacterInfo:
             self._items.append(item)
             if isinstance(item, BoostItem):
                 self.strength += item.strength
+            return True
+        return False
 
     def remove_item(self, item):
         self._items.remove(item)
         if isinstance(item, BoostItem):
             self.strength -= item.strength
+
+    def find_healing_item(self):
+        for item in self._items:
+            if item.name == hp_potion_item_name:
+                return item
+
+    def heal_with_item(self, item):
+        result_hp = self._hp + item.strength
+        if result_hp > max_hp:
+            return False
+        self._hp = result_hp
+        self.remove_item(item)
+        return True

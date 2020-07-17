@@ -56,7 +56,7 @@
             "xp": 10,
             "image": "images/bosses/boss1.png",
             "item": {
-              "name": "Sword",
+              "name": "BetterSword",
               "type": "boost",
               "image": "images/items/sword.png",
               "strength": 1
@@ -66,34 +66,42 @@
       },
       "npcs": [
         {
-	  "name": "Marvin",
-	  "image": "images/npcs/marvin.png",
-          "x": 4,
-          "y": 6,
+          "name": "Marvin",
+          "image": "images/npcs/marvin.png",
+          "x": 12,
+          "y": 8,
           "attributes": {
-            "alreadyMet": false,
-            "staredSadRobotQuest": false,
-            "finishedSadRobotQuest": false
+            "startedQuest": false,
+            "finishedQuest": false
+          },
+          "quest": {
+            "name":"Sad robot",
+            "item": {
+              "name": "POV gun",
+              "type": "boost",
+              "image": "images/items/point_of_view_gun.png",
+              "strength": 42
+            }
           },
           "dialog": {
             "npc_starting_lines": [5, 0],
             "npc_lines": [
-              {"id": 0, "responses": [0, 1], "text": "Uhh"},
+              {"id": 0, "responses": [0, 1, 6], "text": "Uhh"},
               {"id": 1, "responses": [2, 3], "text": "You bet. It's this Genuine People Personalities technology. It's pain in the processor."},
-              {"id": 2, "responses": [4, 5], "text": "What's the point? But I guess you could try. I will need three spare processors."},
+              {"id": 2, "responses": [4, 5], "text": "What's the point? But I guess you could try. I will need a spare processor."},
               {"id": 3, "responses": [], "text": "I'm not going anywhere."},
               {"id": 4, "responses": [], "text": "Like this could help."},
-              {"id": 5, "responses": [0, 1, 6], "text": "Uhhh, you again.", "requirement": {"alreadyMet": true}},
-              {"id": 6, "responses": [0, 1, 6], "text": "Why bother. Here are some goods for your trouble.", "action": {}}
+              {"id": 5, "responses": [0, 1, 6], "text": "Uhhh, you again."},
+              {"id": 6, "responses": [], "text": "Where did you find this 8086? Maybe I will be able to play some tetris on it. All those dissapearing blocks. That ought to cheer me up. Anyway, here is little something for your trouble. Off I go."}
             ],
             "player_lines": [
               {"id": 0, "response": [], "text": "Uhh, another sad robot."},
               {"id": 1, "response": [1], "text": "Hello, you seem down."},
-              {"id": 2, "response": [2], "text": "Maybe i could help you with that.", "requirement": {"staredSadRobotQuest": false}},
+              {"id": 2, "response": [2], "text": "Maybe i could help you with that."},
               {"id": 3, "response": [], "text": "Yeah, it sounds ghastly. Bye"},
-              {"id": 4, "response": [3], "text": "Sure. Let me get them for you", "requirement": {"staredSadRobotQuest": false}, "action": {"startedSadRobotQuest": true}},
+              {"id": 4, "response": [3], "text": "Sure. Let me get it for you", "action": {"startedQuest": true}, "requirements": {"finishedQuest": false}},
               {"id": 5, "response": [], "text": "I meant something more along the lines of cheering you up."},
-              {"id": 6, "response": [], "text": "I brought you processors. Hope they'll help", "requirement": {"startedSadRobotQuest": true}}
+              {"id": 6, "response": [6], "text": "I brought you processors. Hope they'll help", "questItem": {"name": "8086 processor"}, "action": {"finishedQuest": true}, "requirements": {"startedQuest": true, "finishedQuest": false}}
             ]
           }
         }
@@ -126,18 +134,50 @@
             "name": "HPPotion",
             "image": "images/items/hp_potion.png",
             "strength": 2,
-            "x": 3,
+            "x": 12,
             "y": 14
           },
           {
             "name": "LifeRenewalPotion",
             "image": "images/items/life_renewal_potion.png",
             "strength": 5,
-            "x": 1,
+            "x": 14,
+            "y": 14
+          },
+          {
+            "name": "8086 processor",
+            "image": "images/items/processor.png",
+            "strength": 1,
+            "x": 18,
             "y": 14
           }
         ]
-      }
+      },
+      "chests": [
+        {
+          "x": 8,
+          "y": 18,
+          "difficulty": 3,
+          "item": {
+              "name": "Sword",
+              "type": "boost",
+              "image": "images/items/sword.png",
+              "strength": 1
+            }
+        },
+        {
+          "x": 8,
+          "y": 9,
+          "difficulty": 4,
+          "item": {
+            "x": 2,
+            "y": 17,
+            "type": "key",
+            "gate_x": 23,
+            "gate_y": 2
+          }
+        }
+      ]
     }
   ]
 }

@@ -1,10 +1,11 @@
+import time
+
 import pygame
 from pygame.locals import KEYDOWN
 
 from character.CharacterController import CharacterController
 from fixtures.constants import *
 from graphics.settings import *
-from pygame.locals import KEYDOWN
 from graphics.settings import CHARACTER_IMAGE_PATH
 
 
@@ -68,13 +69,29 @@ class Screen:
         x = character_info.x
         y = character_info.y
         img = pygame.image.load(CHARACTER_IMAGE_PATH)
-        #img = pygame.transform.rotate(img, direction.value * 90)
+        # img = pygame.transform.rotate(img, direction.value * 90)
         Screen.display_surface.blit(img, (x * PIXEL_SIZE + SCREEN_PADDING_X / 2, y * PIXEL_SIZE + SCREEN_PADDING_Y))
         pygame.display.update()
 
     @staticmethod
     def display_map():
         Screen.instance.display_map()
+
+    @staticmethod
+    def repaint_screen():
+        fields = Screen.instance.fields
+        Screen.instance = None
+        Screen.instance = Screen(fields, Screen.game_map)
+
+    @staticmethod
+    def render_text_values_for_n_seconds(character_info_view, text_value, x, x_offset, y, y_offset, font_color=green,
+                                         background_color=dark_blue, nsec=1):
+        Screen.render_text_values(text_value, x, x_offset, y, y_offset, font_color, background_color)
+        pygame.display.flip()
+        time.sleep(nsec)
+        Screen.display_surface.fill(dark_blue)  # erases the entire screen surface
+        Screen.repaint_screen()
+        Screen.display_character_info(character_info_view)
 
     @staticmethod
     def render_text_values(text_value, x, x_offset, y, y_offset, font_color=green, background_color=dark_blue):
