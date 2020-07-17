@@ -6,6 +6,7 @@ from fixtures.constants import *
 from graphics.Screen import Screen
 from graphics.views.BattleView import BattleView
 from graphics.views.QuestionView import QuestionView
+from graphics.TextUtil import TextUtil
 from utils import load_random_question, keyboard_control
 
 
@@ -79,9 +80,9 @@ class BattleController:
 
     def display_cure_character_text(self):
         Screen.display_surface.fill(black)
-        self.battle_view.render_line_center(
-            f'You lost the battle, but you can save yourself because you have a magic HP Potion.', 1)
-        self.battle_view.render_line_center('Do you want to use it? (Y - yes, N - no)', 2)
+        text_util = TextUtil((0, 0), (0, 0))
+        text_util.print_multiline('You lost the battle, but you can save yourself because you have a magic HP Potion.'
+                                  'Do you want to use it? (Y - yes, N - no)')
         keyboard_control(self.bring_character_back_to_life_action)
         time.sleep(1)
 
