@@ -6,6 +6,8 @@ from fixtures.dimens import item_display_offset
 from graphics.views.View import View
 from utils import keyboard_control
 from graphics.Screen import Screen
+from graphics.TextUtil import TextUtil
+import fixtures.constants as fc
 
 
 class DialogView(View):
@@ -19,34 +21,42 @@ class DialogView(View):
             pygame.K_4: self.controller.respond3,
             pygame.K_5: self.controller.respond4,
         }
+        self.text_util = TextUtil(0, 100)
 
     def display(self):
-        Screen.display_surface.fill(black)
         self.display_dialog()
 
     def display_dialog(self):
-        self.render_line_center(self.controller.npc.name(), 2)
-        time.sleep(1)
-        self.render_line_center(self.controller.getNpcStartLine(), 4)
-
-
         while(True):
-            playerLines = self.controller.getPlayerLines()
-            if not playerLines:
+            self.clearDialogView()
+            if (not self.displayNpcLine()):
                 break
-            for lineId, line in enumerate(playerLines):
-                self.render_line_center(str(lineId+1) + ". " + line, 6 + 2*lineId)
-            
-            self.controller.awaitResponse()
-            while (not self.controller.receivedResponse()):
-                keyboard_control(self.response_actions)
-
-            Screen.display_surface.fill(black)
-            self.render_line_center(self.controller.npc.name(), 2)
-
-            npcLine = self.controller.getNpcNextLine()
-            if not npcLine:
+            if (not self.displayPlayerLines()):
                 break
-            self.render_line_center(npcLine, 4)
-        
+            self.pollPlayersResponse()
+            time.sleep(0.3)
         time.sleep(1)
+
+    def clearDialogView(self):
+        self.text_util.clear()
+
+    def displayPlayerLines(self):
+        playerLines = self.controller.getPlayerLines()
+        if not playerLines:
+            return False
+        for lineId, line in enumerate(playerLines):
+            self.text_util.print_multiline(str(lineId+1) + '. ' + line)
+        return True
+
+    def displayNpcLine(self):
+        npcLine = self.controller.getNpcNextLine()
+        if not npcLine:
+            return False
+        npcLine = self.controller.npc.name() + ': ' + npcLine
+        self.text_util.print_multiline(npcLine, font_color=fc.white)
+        return True
+
+    def pollPlayersResponse(self):
+        self.controller.awaitResponse()
+        while (not self.controller.receivedResponse()):
+            keyboard_control(self.response_actions)
