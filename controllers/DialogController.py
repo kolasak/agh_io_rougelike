@@ -18,7 +18,7 @@ class DialogController:
         self.dialog_view.display()
         finished = self.npc.attributes['finishedQuest']
         if finished and self.item_to_delete:
-            self.character.xp += 5
+            self.character.exp += 5
             self.character.remove_item(self.item_to_delete)
         return finished
 
