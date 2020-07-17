@@ -22,9 +22,11 @@ class QuestionView(View):
         Screen.display_surface.fill(black)
         self.render_line_center(self.question_text, self.line)
         self.line += 1
+        answer_index = 1
         for answer_text in self.answers:
-            self.render_line_center(answer_text, self.line)
+            self.render_line_center(str(answer_index) + '. ' + answer_text, self.line)
             self.line += 1
+            answer_index += 1
         self.answer_question(self.get_answer_key())
         time.sleep(2)
 
@@ -47,11 +49,13 @@ class QuestionView(View):
             self.failure()
 
     def success(self):
-        self.controller.accept_answer()
         self.render_line_center("Correct answer.", self.line)
+        time.sleep(0.5)
+        self.controller.accept_answer()
         Screen.display_surface.fill(black)
 
     def failure(self):
-        self.controller.reject_answer()
         self.render_line_center("Wrong answer.", self.line)
+        time.sleep(0.5)
+        self.controller.reject_answer()
         Screen.display_surface.fill(black)

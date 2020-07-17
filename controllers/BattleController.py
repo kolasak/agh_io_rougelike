@@ -71,6 +71,9 @@ class BattleController:
 
     def accept_answer(self):
         self.boost = 3
+        Screen.display_surface.fill(black)
+        self.battle_view.render_line_center('You got bonus damage of ' + str(self.boost), 1)
+        time.sleep(1)
 
     def reject_answer(self):
         self.boost = 0
