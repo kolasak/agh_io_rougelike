@@ -101,7 +101,7 @@
               {"id": 3, "response": [], "text": "Yeah, it sounds ghastly. Bye"},
               {"id": 4, "response": [3], "text": "Sure. Let me get it for you", "action": {"startedQuest": true}, "requirements": {"finishedQuest": false}},
               {"id": 5, "response": [], "text": "I meant something more along the lines of cheering you up."},
-              {"id": 6, "response": [6], "text": "I brought you processors. Hope they'll help", "questItem": {"name": "Laptop"}, "action": {"finishedQuest": true}, "requirements": {"startedQuest": true, "finishedQuest": false}}
+              {"id": 6, "response": [6], "text": "I brought you processors. Hope they'll help", "questItem": {"name": "8086 processor"}, "action": {"finishedQuest": true}, "requirements": {"startedQuest": true, "finishedQuest": false}}
             ]
           }
         }
@@ -142,6 +142,13 @@
             "image": "images/items/life_renewal_potion.png",
             "strength": 5,
             "x": 14,
+            "y": 14
+          },
+          {
+            "name": "8086 processor",
+            "image": "images/items/processor.png",
+            "strength": 1,
+            "x": 18,
             "y": 14
           }
         ]
