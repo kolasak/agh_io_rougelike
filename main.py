@@ -1,5 +1,6 @@
 from character.CharacterInfo import CharacterInfo
 from configuration import load_questions, load_multi_room_map
+from enums.Direction import Direction
 from fixtures.constants import max_hp
 from fixtures.dimens import initial_character_display_coord_x, initial_character_display_coord_y
 from graphics.Screen import Screen
@@ -16,8 +17,6 @@ def get_example_character_info_view():
 if __name__ == "__main__":
     game_map = load_multi_room_map('game.json')
     fields = game_map[1][1]
-    # game_map = load_map('config.json')
-    # fields = game_map[0]
     load_questions()
 
     screen = Screen(fields, game_map)
