@@ -19,17 +19,10 @@ def get_example_character_info_view():
 
 
 if __name__ == "__main__":
-<<<<<<< HEAD
     game_map = load_multi_room_map('config.json')
     fields = game_map[0][0]
     #game_map = load_map('config.json')
     #fields = game_map[0]
-=======
-    # game_map = load_multi_room_map('map_generator/generated_map.json')
-    # fields = game_map[0][0]
-    game_map = load_map('config.json')
-    fields = game_map[0]
->>>>>>> af0f31f29669616a0ac6bed72b83cd0dae4171ec
     load_questions()
 
     screen = Screen(fields, game_map)
