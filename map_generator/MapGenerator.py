@@ -193,6 +193,6 @@ if __name__ == "__main__":
     generated_map = create_multi_room_map(creator_config)
     import json
 
-    with open('generated_map.json', 'w') as f:
+    with open('../config.json', 'w') as f:
         json.dump(generated_map, f, cls=NumpyEncoder)
     print(generated_map)
