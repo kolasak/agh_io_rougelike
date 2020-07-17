@@ -128,3 +128,8 @@ class Screen:
     @staticmethod
     def __calculate_text_coordinates_with_offset(x, x_offset, y, y_offset):
         return x - x_offset, y + y_offset
+
+    @staticmethod
+    def show_game_intro():
+        from graphics.views.IntroView import IntroView
+        IntroView().display()

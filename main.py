@@ -27,6 +27,10 @@ if __name__ == "__main__":
 
     screen = Screen(fields, game_map)
 
+    Screen.show_game_intro()
+
+    Screen.display_map()
+
     character_info_view = get_example_character_info_view()
     Screen.display_character_info(character_info_view)
     Screen.animate(character_info_view)  # todo: add threads??
