@@ -95,4 +95,4 @@ class BattleController:
                 break
 
     def end_game(self):
-        self.battle_view.display_game_ending(self.character.exp)
+        self.battle_view.display_game_ending(self.character.exp, False)
