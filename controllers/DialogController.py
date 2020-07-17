@@ -31,7 +31,7 @@ class DialogController:
         return self.npcLines[self.npcLineId]['text']
 
     def getPlayerLines(self):
-        playerResponseIds = self.npcLines[self.playerLineId]['responses']
+        playerResponseIds = self.npcLines[self.npcLineId]['responses']
         if not playerResponseIds:
             return None
         lines = list()
@@ -46,7 +46,6 @@ class DialogController:
         for key, value in self.playerLines[responseId]['requirements'].items():
             if (value != self.npc.attributes[key]):
                 return False
-        
         # if dialog option requires questItem check if player has it
         if ('questItem' not in self.playerLines[responseId]):
             return True

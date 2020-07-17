@@ -56,6 +56,7 @@ class CharacterController:
             elif isinstance(fields[x][y], GateField):
                 keys_ids = [x.id for x in character_info_view.character_info.items if isinstance(x, Key)]
                 if fields[x][y].key_id in keys_ids:
+                    character_info_view.character_info.remove_key(fields[x][y].key_id)
                     fields[x][y] = RoadField()
                     Screen.Screen.display_map()
                     character_info_view.display()

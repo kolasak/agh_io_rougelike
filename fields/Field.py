@@ -25,10 +25,7 @@ class Field:
         return self.token
 
     def remove_token(self):
-        self.token = None
-        # picked_token = self.token
-        # self.token = None
-        # return picked_token
+        self.token = None\
 
     def __str__(self):
         return self.character

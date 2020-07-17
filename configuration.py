@@ -25,7 +25,6 @@ def load_multi_room_map(json_path='config.json'):
 
     map_height = len(json_data)
     map_width = len(json_data[0])
-    print(map_width, map_height)
     game_map = np.empty((map_height, map_width), dtype=object)
     passages_map = np.empty((map_height, map_width), dtype=object)
 

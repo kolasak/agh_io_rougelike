@@ -36,7 +36,7 @@ class DialogView(View):
             self.pollPlayersResponse()
             time.sleep(0.3)
         pygame.event.wait()
-        pygame.event.wait()
+        # pygame.event.wait()
 
     def clearDialogView(self):
         self.text_util.clear()

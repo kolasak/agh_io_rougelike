@@ -88,7 +88,7 @@ class BattleController:
     def bring_character_back_to_life(self):
         for item in self.character.items:
             if item.name == life_renewal_potion_item_name:
-                self.character.hp = max_hp // 2
+                self.character.hp = item.healing
                 self.character.remove_item(item)
                 pygame.display.update()
                 break

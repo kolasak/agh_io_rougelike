@@ -36,7 +36,12 @@
             "hp": 20,
             "xp": 20,
             "image": "images/monsters/monster_1.png",
-            "item": null
+            "item": {
+              "name": "8086 processor",
+              "type": "boost",
+              "image": "images/items/processor.png",
+              "strength": 0
+            }
           }
         ],
         "bosses": []
@@ -45,54 +50,54 @@
         {
           "name": "Marvin",
           "image": "images/npcs/marvin.png",
-          "x": 12,
-          "y": 8,
+          "x": 9,
+          "y": 5,
           "attributes": {
             "startedQuest": false,
             "finishedQuest": false
           },
           "quest": {
-            "name":"Sad robot",
+            "name":"Rude troll",
             "item": {
-              "name": "POV gun",
+              "name": "Fine iron",
               "type": "boost",
               "image": "images/items/point_of_view_gun.png",
-              "strength": 42
+              "strength": 0
             }
           },
           "dialog": {
-            "npc_starting_lines": [5, 0],
+            "npc_starting_lines": [0],
             "npc_lines": [
-              {"id": 0, "responses": [0, 1, 6], "text": "Uhh"},
-              {"id": 1, "responses": [2, 3], "text": "You bet. It's this Genuine People Personalities technology. It's pain in the processor."},
-              {"id": 2, "responses": [4, 5], "text": "What's the point? But I guess you could try. I will need a spare processor."},
-              {"id": 3, "responses": [], "text": "I'm not going anywhere."},
-              {"id": 4, "responses": [], "text": "Like this could help."},
-              {"id": 5, "responses": [0, 1, 6], "text": "Uhhh, you again."},
-              {"id": 6, "responses": [], "text": "Where did you find this 8086? Maybe I will be able to play some tetris on it. All those dissapearing blocks. That ought to cheer me up. Anyway, here is little something for your trouble. Off I go."}
+              {"id": 0, "responses": [0, 1, 7, 6], "text": "Welcome to my secret cavern"},
+              {"id": 1, "responses": [0, 1], "text": "I'm Marvin. Nice to meet you."},
+              {"id": 2, "responses": [2, 3], "text": "Yes. I was tired of village hustle so I decided to leave and start living on my own here just like Gabe, the Blacksmith. Unfortunately it turned out that even here I can't find enough peace."},
+              {"id": 3, "responses": [4, 5], "text": "This naughty troll stole my favourite processor while I was asleep. Wait, are you a warrior? Maybe you could help me get it back?"},
+              {"id": 4, "responses": [8], "text": "Thank you stranger! Take this fine iron. If you find Gabe, the Blacksmith he can surely make a great weapon of it."}
             ],
             "player_lines": [
-              {"id": 0, "response": [], "text": "Uhh, another sad robot."},
-              {"id": 1, "response": [1], "text": "Hello, you seem down."},
-              {"id": 2, "response": [2], "text": "Maybe i could help you with that."},
-              {"id": 3, "response": [], "text": "Yeah, it sounds ghastly. Bye"},
-              {"id": 4, "response": [3], "text": "Sure. Let me get it for you", "action": {"startedQuest": true}, "requirements": {"finishedQuest": false}},
-              {"id": 5, "response": [], "text": "I meant something more along the lines of cheering you up."},
-              {"id": 6, "response": [6], "text": "I brought you processors. Hope they'll help", "questItem": {"name": "8086 processor"}, "action": {"finishedQuest": true}, "requirements": {"startedQuest": true, "finishedQuest": false}}
+              {"id": 0, "response": [1], "text": "Who are you?"},
+              {"id": 1, "response": [2], "text": "Secret cavern?"},
+              {"id": 2, "response": [], "text": "Sorry to hear that. Bye."},
+              {"id": 3, "response": [3], "text": "What happened?"},
+              {"id": 4, "response": [], "text": "Sure. Let me get it for you", "action": {"startedQuest": true}, "requirements": {"finishedQuest": false}},
+              {"id": 5, "response": [], "text": "Sorry, I don't have time for that."},
+              {"id": 6, "response": [4], "text": "I brought you processor. Hope you'll have your peace.", "questItem": {"name": "8086 processor"}, "action": {"finishedQuest": true}, "requirements": {"startedQuest": true, "finishedQuest": false}},
+              {"id": 7, "response": [], "text": "I'll bring you the processor as soon as I can.", "requirements": {"startedQuest": true}},
+              {"id": 8, "response": [], "text": "Thank you."}
             ]
           }
         },
         {
-          "name": "Marvin",
+          "name": "Gabe, the Blacksmith",
           "image": "images/npcs/marvin.png",
-          "x": 12,
-          "y": 8,
+          "x": 15,
+          "y": 1,
           "attributes": {
-            "startedQuest": false,
+            "startedQuest": true,
             "finishedQuest": false
           },
           "quest": {
-            "name":"Sad robot",
+            "name":"Great weapon",
             "item": {
               "name": "POV gun",
               "type": "boost",
@@ -101,24 +106,17 @@
             }
           },
           "dialog": {
-            "npc_starting_lines": [5, 0],
+            "npc_starting_lines": [0],
             "npc_lines": [
-              {"id": 0, "responses": [0, 1, 6], "text": "Uhh"},
-              {"id": 1, "responses": [2, 3], "text": "You bet. It's this Genuine People Personalities technology. It's pain in the processor."},
-              {"id": 2, "responses": [4, 5], "text": "What's the point? But I guess you could try. I will need a spare processor."},
-              {"id": 3, "responses": [], "text": "I'm not going anywhere."},
-              {"id": 4, "responses": [], "text": "Like this could help."},
-              {"id": 5, "responses": [0, 1, 6], "text": "Uhhh, you again."},
-              {"id": 6, "responses": [], "text": "Where did you find this 8086? Maybe I will be able to play some tetris on it. All those dissapearing blocks. That ought to cheer me up. Anyway, here is little something for your trouble. Off I go."}
+              {"id": 0, "responses": [0, 1], "text": "Hello, I'm Gabe, the Blacksmith. Is there something I can do for you?"},
+              {"id": 1, "responses": [2], "text": "Well, I like it."},
+              {"id": 2, "responses": [3], "text": "That is some fine iron! (smashes it with hammer a little bit) Here, take this weapon. It should be powerful."}
             ],
             "player_lines": [
-              {"id": 0, "response": [], "text": "Uhh, another sad robot."},
-              {"id": 1, "response": [1], "text": "Hello, you seem down."},
-              {"id": 2, "response": [2], "text": "Maybe i could help you with that."},
-              {"id": 3, "response": [], "text": "Yeah, it sounds ghastly. Bye"},
-              {"id": 4, "response": [3], "text": "Sure. Let me get it for you", "action": {"startedQuest": true}, "requirements": {"finishedQuest": false}},
-              {"id": 5, "response": [], "text": "I meant something more along the lines of cheering you up."},
-              {"id": 6, "response": [6], "text": "I brought you processors. Hope they'll help", "questItem": {"name": "8086 processor"}, "action": {"finishedQuest": true}, "requirements": {"startedQuest": true, "finishedQuest": false}}
+              {"id": 0, "response": [1], "text": "Blacksmith in the dungeon? Your life must be strange."},
+              {"id": 1, "response": [2], "text": "You see, I got this iron recently and I was told that you can do a great weapon of it.", "questItem": {"name": "Fine iron"}, "action": {"finishedQuest": true}, "requirements": {"startedQuest": true, "finishedQuest": false}},
+              {"id": 2, "response": [], "text": "Good for you. Bye"},
+              {"id": 3, "response": [], "text": "Wow! Looks great. Thank you."}
             ]
           }
         }
@@ -236,16 +234,70 @@
         ]
       },
       "monsters": {
-        "basic": [],
+        "basic": [
+          {
+            "x": 18,
+            "y": 16,
+            "strength": 5,
+            "hp": 20,
+            "xp": 20,
+            "image": "images/monsters/monster_1.png",
+            "item": null
+          }
+        ],
         "bosses": []
       },
-      "npcs": [],
+      "npcs": [
+        {
+          "name": "Marin, villager",
+          "image": "images/npcs/marvin.png",
+          "x": 17,
+          "y": 16,
+          "attributes": {
+            "startedQuest": true,
+            "finishedQuest": false
+          },
+          "quest": {
+            "name":"Great weapon",
+            "item": null
+          },
+          "dialog": {
+            "npc_starting_lines": [0],
+            "npc_lines": [
+              {"id": 0, "responses": [0], "text": "Thank you my hero! I was a volunteer to hide the magic scroll and this monster attacked me. Take the scroll, it's in the chest. It will be safer with you. I'm going to go back to the village."}
+            ],
+            "player_lines": [
+              {"id": 0, "response": [], "text": "You're welcome. Stay safe.", "action": {"finishedQuest": true}}
+            ]
+          }
+        }
+      ],
       "items": {
         "keys": [],
         "boost": [],
-        "potions": []
+        "potions": [
+          {
+            "name": "HPPotion",
+            "image": "images/items/hp_potion.png",
+            "healing": 5,
+            "x": 11,
+            "y": 11
+          }
+        ]
       },
-      "chests": [],
+      "chests": [
+        {
+          "x": 18,
+          "y": 12,
+          "difficulty": 3,
+          "item": {
+              "name": "Scroll",
+              "type": "boost",
+              "image": "images/items/sword.png",
+              "strength": 5
+            }
+        }
+      ],
       "position": [
         0,
         2
@@ -259,7 +311,7 @@
         "height": 20,
         "map": [
           ["V","V","V","V","V","V","V","V","V","V","V","V","V","P","V","V","V","V","V","V"],
-          ["V","V","M","M","M","V","M","M","M","M","M","M","V","M","M","M","M","M","M","V"],
+          ["V","V","M","M","M","V","M","M","M","M","M","M","V","M","M","V","M","M","M","V"],
           ["V","M","M","V","V","V","M","V","V","M","V","M","M","V","G","V","M","V","M","V"],
           ["V","M","V","V","M","M","M","V","M","M","M","V","M","V","M","M","M","V","M","P"],
           ["V","M","V","M","M","V","V","M","M","V","M","V","M","M","V","M","V","M","M","V"],
@@ -284,7 +336,31 @@
         "basic": [],
         "bosses": []
       },
-      "npcs": [],
+      "npcs": [
+        {
+          "name": "Adventurer",
+          "image": "images/npcs/marvin.png",
+          "x": 17,
+          "y": 4,
+          "attributes": {
+            "startedQuest": false,
+            "finishedQuest": false
+          },
+          "quest": {
+            "name":"Leave",
+            "item": null
+          },
+          "dialog": {
+            "npc_starting_lines": [0],
+            "npc_lines": [
+              {"id": 0, "responses": [0], "text": "Leave me alone. I am preparing myself to find some valuable items aroung here."}
+            ],
+            "player_lines": [
+              {"id": 0, "response": [], "text": "..."}
+            ]
+          }
+        }
+      ],
       "items": {
         "keys": [],
         "boost": [],
@@ -295,6 +371,13 @@
             "healing": 5,
             "x": 18,
             "y": 17
+          },
+          {
+            "name": "LifeRenewalPotion",
+            "image": "images/items/life_renewal_potion.png",
+            "healing": 35,
+            "x": 7,
+            "y": 18
           }
         ]
       },
@@ -378,23 +461,8 @@
       },
       "npcs": [],
       "items": {
-        "keys": [
-          {
-            "x": 2,
-            "y": 17,
-            "gate_x": 9,
-            "gate_y": 15
-          }
-        ],
-        "boost": [
-          {
-            "name": "LifeRenewalPotion",
-            "image": "images/items/life_renewal_potion.png",
-            "strength": 0,
-            "x": 14,
-            "y": 14
-          }
-        ],
+        "keys": [],
+        "boost": [],
         "potions": [
           {
             "name": "HPPotion",
@@ -424,13 +492,13 @@
           ["V","F","F","F","V","M","M","M","V","V","M","V","M","V","M","M","V","M","M","V"],
           ["V","F","F","V","M","M","V","M","V","M","M","V","M","V","V","M","M","V","M","V"],
           ["V","V","M","V","V","V","V","M","M","M","V","M","M","M","M","V","M","V","M","V"],
-          ["V","V","M","M","M","M","M","M","V","V","M","M","V","V","M","M","V","V","M","V"],
+          ["V","V","M","M","M","M","G","M","V","V","M","M","V","V","M","M","V","V","M","V"],
           ["V","V","V","V","M","V","M","V","M","M","V","V","M","M","V","M","V","M","M","V"],
           ["V","M","M","M","M","V","M","V","V","M","M","M","M","V","M","M","V","M","V","V"],
           ["V","M","V","V","M","M","V","M","M","M","V","V","M","M","M","V","M","M","V","V"],
           ["V","M","M","V","M","V","M","M","V","V","M","M","V","V","M","M","V","M","M","V"],
           ["V","M","V","M","M","M","V","M","M","V","M","M","M","M","V","V","M","V","M","V"],
-          ["V","M","V","M","V","M","V","V","M","M","V","M","V","M","V","M","M","V","M","V"],
+          ["V","M","V","M","M","M","V","V","M","M","V","M","V","M","V","M","M","V","M","V"],
           ["V","V","M","M","V","M","M","M","V","M","V","M","V","M","M","M","V","V","M","V"],
           ["V","M","M","V","M","V","V","M","M","M","V","M","M","V","M","V","M","M","M","V"],
           ["P","M","V","V","M","M","M","V","V","V","M","V","M","V","M","M","V","V","M","V"],
@@ -439,7 +507,17 @@
         ]
       },
       "monsters": {
-        "basic": [],
+        "basic": [
+          {
+            "x": 16,
+            "y": 6,
+            "strength": 5,
+            "hp": 20,
+            "xp": 20,
+            "image": "images/monsters/monster_1.png",
+            "item": null
+          }
+        ],
         "bosses": [
           {
             "x": 4,
@@ -452,9 +530,67 @@
           }
         ]
       },
-      "npcs": [],
+      "npcs": [
+        {
+          "name": "John",
+          "image": "images/npcs/marvin.png",
+          "x": 4,
+          "y": 14,
+          "attributes": {
+            "startedQuest": false,
+            "finishedQuest": false
+          },
+          "quest": {
+            "name":"Sacred forest",
+            "item": null
+          },
+          "dialog": {
+            "npc_starting_lines": [0],
+            "npc_lines": [
+              {"id": 0, "responses": [0, 1], "text": "Hello wanderer. Want some advice?"},
+              {"id": 1, "responses": [2], "text": "You don't want to fight this monster. He is peaceful until someone wants to pass through him and he is extremely strong. The best way to the sacred forest is through the labyrinth. But there's locked gate. I think that the key is hidden somewhere in the labyrinth."},
+              {"id": 2, "responses": [2], "text": "You sound confident. Good luck then."}
+            ],
+            "player_lines": [
+              {"id": 0, "response": [1], "text": "Sure."},
+              {"id": 1, "response": [2], "text": "I don't need your advice."},
+              {"id": 2, "response": [], "text": "Thank you."}
+            ]
+          }
+        },
+        {
+          "name": "Monk",
+          "image": "images/npcs/marvin.png",
+          "x": 4,
+          "y": 3,
+          "attributes": {
+            "startedQuest": false,
+            "finishedQuest": false
+          },
+          "quest": {
+            "name":"Sacred forest",
+            "item": null
+          },
+          "dialog": {
+            "npc_starting_lines": [0],
+            "npc_lines": [
+              {"id": 0, "responses": [0], "text": "Welcome to the sacred forest. Remember if you want to be powerful you'll need the biggest effort."}
+            ],
+            "player_lines": [
+              {"id": 0, "response": [], "text": "(Leave this strange man.)"}
+            ]
+          }
+        }
+      ],
       "items": {
-        "keys": [],
+        "keys": [
+          {
+            "x": 16,
+            "y": 7,
+            "gate_x": 6,
+            "gate_y": 8
+          }
+        ],
         "boost": [],
         "potions": []
       },
@@ -565,16 +701,47 @@
           }
         ]
       },
-      "npcs": [],
-      "items": {
-        "keys": [
-          {
-            "x": 10,
-            "y": 5,
-            "gate_x": 9,
-            "gate_y": 15
+      "npcs": [
+        {
+          "name": "Guardian",
+          "image": "images/npcs/marvin.png",
+          "x": 10,
+          "y": 5,
+          "attributes": {
+            "startedQuest": false,
+            "finishedQuest": false
+          },
+          "quest": {
+            "name":"Final battle",
+            "item": {
+              "x": 9,
+              "y": 15,
+              "type": "key",
+              "gate_x": 9,
+              "gate_y": 15
+            }
+          },
+          "dialog": {
+            "npc_starting_lines": [0],
+            "npc_lines": [
+              {"id": 0, "responses": [0, 5], "text": "Hello young hero."},
+              {"id": 1, "responses": [1, 2], "text": "We are unable to defeat this monster which used to attack our village but I managed to lock him in that prison cell with magic. Unfortunately my power is weakening over time and I don't know how much longer I can hold it. Are you willing to take a quest?"},
+              {"id": 2, "responses": [3], "text": "Bless you. First you need to prove that you are great hero. Please bring me magic scroll and I will let you to the monster. Remember to be well equipped for the battle."},
+              {"id": 3, "responses": [4], "text": "We are doomed."}
+            ],
+            "player_lines": [
+              {"id": 0, "response": [1], "text": "Hello. You look sad."},
+              {"id": 1, "response": [2], "text": "Sure! Sounds like adventure.", "action": {"startedQuest": true}},
+              {"id": 2, "response": [3], "text": "I don't feel like fighting."},
+              {"id": 3, "response": [], "text": "I'll be back with it."},
+              {"id": 4, "response": [], "text": "..."},
+              {"id": 5, "response": [], "text": "Here it is. I am ready. Let me face the monster.", "questItem": {"name": "Scroll"}, "action": {"finishedQuest": true}, "requirements": {"startedQuest": true, "finishedQuest": false}}
+            ]
           }
-        ],
+        }
+      ],
+      "items": {
+        "keys": [],
         "boost": [],
         "potions": []
       },
