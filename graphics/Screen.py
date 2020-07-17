@@ -96,6 +96,7 @@ class Screen:
     @staticmethod
     def render_text_values(text_value, x, x_offset, y, y_offset, font_color=green, background_color=dark_blue):
         font = pygame.font.Font(font_name, font_size)
+
         text = font.render(text_value, True, font_color, background_color)
 
         text_rect = Screen.__get_positioned_text(text, x, x_offset, y, y_offset)

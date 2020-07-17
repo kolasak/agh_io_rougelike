@@ -1,5 +1,7 @@
+import pygame
+from numpy.core.defchararray import isnumeric
 from pygame.constants import K_m
-from pygame.locals import K_w, K_a, K_s, K_d, K_e, K_r, K_h
+from pygame.locals import K_w, K_a, K_s, K_d, K_e, K_r, K_h, K_q
 
 from character.items.Key import Key
 from enums.Direction import Direction
@@ -56,9 +58,12 @@ class CharacterController:
         elif event_key == K_e:
             field = fields[character_info_view.character_info.x][character_info_view.character_info.y]
             if field.item is not None:
-                if not character_info_view.character_info.add_item(field.get_item()):  # fixme
-                    # character_info_view.render_line_center(CharacterController.cannot_add_more_items_msg, 4)
-                    pass
+                item = field.get_item()
+                if not character_info_view.character_info.add_item(item):
+                    field.put_item(item)
+                    Screen.Screen.render_text_values_for_n_seconds(character_info_view,
+                                                                   'You can\'t have any more items.',
+                                                                   700, 0, 800, 0)
 
                 Screen.Screen.render_character(character_info_view.character_info.x,
                                                character_info_view.character_info.y,
@@ -66,6 +71,19 @@ class CharacterController:
                                                character_info_view.character_info.y, character_info_view.character_img,
                                                Direction.SOUTH)
                 Screen.Screen.display_character_info(character_info_view)
+        elif isnumeric(pygame.key.name(event_key)) \
+                and int(pygame.key.name(event_key)) in range(1, len(character_info_view.character_info.items) + 1):
+            item_number = int(pygame.key.name(event_key)) - 1
+            item = character_info_view.character_info.items[item_number]
+            if fields[character_info_view.character_info.x][character_info_view.character_info.y].item is None:
+                del character_info_view.character_info.items[item_number]
+                fields[character_info_view.character_info.x][character_info_view.character_info.y].put_item(item)
+                Screen.Screen.repaint_screen()
+                Screen.Screen.display_character_info(character_info_view)
+            else:
+                Screen.Screen.render_text_values_for_n_seconds(character_info_view,
+                                                               'This field is already occupied by another item',
+                                                               700, 0, 800, 0)
         elif event_key == K_r:
             fields[character_info_view.character_info.x][character_info_view.character_info.y].interact()
         elif event_key == K_m:
