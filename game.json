@@ -89,7 +89,7 @@
         },
         {
           "name": "Gabe, the Blacksmith",
-          "image": "images/npcs/marvin.png",
+          "image": "images/npcs/blacksmith.png",
           "x": 15,
           "y": 1,
           "attributes": {
@@ -179,7 +179,7 @@
             "strength": 1,
             "hp": 10,
             "xp": 10,
-            "image": "images/monsters/monster_1.png",
+            "image": "images/monsters/monster1.png",
             "item": null
           },
           {
@@ -188,7 +188,7 @@
             "strength": 1,
             "hp": 10,
             "xp": 10,
-            "image": "images/monsters/monster_1.png",
+            "image": "images/monsters/monster2.png",
             "item": null
           }
         ],
@@ -241,7 +241,7 @@
             "strength": 5,
             "hp": 20,
             "xp": 20,
-            "image": "images/monsters/monster_1.png",
+            "image": "images/monsters/monster6.png",
             "item": null
           }
         ],
@@ -250,7 +250,7 @@
       "npcs": [
         {
           "name": "Marin, villager",
-          "image": "images/npcs/marvin.png",
+          "image": "images/npcs/npc2.png",
           "x": 17,
           "y": 16,
           "attributes": {
@@ -339,7 +339,7 @@
       "npcs": [
         {
           "name": "Adventurer",
-          "image": "images/npcs/marvin.png",
+          "image": "images/npcs/adventurer.png",
           "x": 17,
           "y": 4,
           "attributes": {
@@ -435,7 +435,7 @@
             "strength": 1,
             "hp": 10,
             "xp": 10,
-            "image": "images/monsters/monster_1.png",
+            "image": "images/monsters/monster7.png",
             "item": null
           },
           {
@@ -444,7 +444,7 @@
             "strength": 1,
             "hp": 10,
             "xp": 10,
-            "image": "images/monsters/monster_1.png",
+            "image": "images/monsters/monster8.png",
             "item": null
           },
           {
@@ -453,7 +453,7 @@
             "strength": 1,
             "hp": 10,
             "xp": 10,
-            "image": "images/monsters/monster_1.png",
+            "image": "images/monsters/monster9.png",
             "item": null
           }
         ],
@@ -514,7 +514,7 @@
             "strength": 5,
             "hp": 20,
             "xp": 20,
-            "image": "images/monsters/monster_1.png",
+            "image": "images/monsters/monster10.png",
             "item": null
           }
         ],
@@ -525,7 +525,7 @@
             "strength": 25,
             "hp": 200,
             "xp": 0,
-            "image": "images/bosses/boss1.png",
+            "image": "images/bosses/dragon2.png",
             "item": null
           }
         ]
@@ -533,7 +533,7 @@
       "npcs": [
         {
           "name": "John",
-          "image": "images/npcs/marvin.png",
+          "image": "images/npcs/npc1.png",
           "x": 4,
           "y": 14,
           "attributes": {
@@ -560,7 +560,7 @@
         },
         {
           "name": "Monk",
-          "image": "images/npcs/marvin.png",
+          "image": "images/npcs/monk.png",
           "x": 4,
           "y": 3,
           "attributes": {
@@ -696,7 +696,8 @@
             "strength": 16,
             "hp": 100,
             "xp": 100,
-            "image": "images/bosses/boss1.png",
+            "image": "images/bosses/dragon3.png",
+
             "item": null
           }
         ]
@@ -704,7 +705,7 @@
       "npcs": [
         {
           "name": "Guardian",
-          "image": "images/npcs/marvin.png",
+          "image": "images/npcs/guardian.png",
           "x": 10,
           "y": 5,
           "attributes": {
