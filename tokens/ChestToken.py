@@ -14,5 +14,7 @@ class ChestToken(Token):
     def interact(self, character_info=None):
         controller = ChestController(self)
         result = controller.start_chest_view()
+        if result:
+            character_info.exp += 5
         self.already_interacted = True
         return result

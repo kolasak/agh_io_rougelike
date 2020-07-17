@@ -54,7 +54,7 @@ class BattleController:
         return ['You lost!']
 
     def battle_player_strike(self):
-        strike_amount = self.character.strength + self.boost
+        strike_amount = self.character.strength + self.boost + self.character.exp // 10
         self.monster.hp -= strike_amount
         self.battle_view.display_round(f'You hit monster with {strike_amount} damage.')
         if self.monster.hp <= 0:

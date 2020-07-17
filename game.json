@@ -264,7 +264,7 @@
           "dialog": {
             "npc_starting_lines": [0],
             "npc_lines": [
-              {"id": 0, "responses": [0], "text": "Thank you my hero! I was a volunteer to hide the magic scroll and this monster attacked me. Take the scroll, it's in the chest. It will be safer with you. I'm going to go back to the village."}
+              {"id": 0, "responses": [0], "text": "Thank you my hero! I was a volunteer to hide the Laptop and this monster attacked me. Take the scroll, it's in the chest. It will be safer with you. I'm going to go back to the village."}
             ],
             "player_lines": [
               {"id": 0, "response": [], "text": "You're welcome. Stay safe.", "action": {"finishedQuest": true}}
@@ -291,9 +291,9 @@
           "y": 12,
           "difficulty": 3,
           "item": {
-              "name": "Scroll",
+              "name": "Laptop",
               "type": "boost",
-              "image": "images/items/sword.png",
+              "image": "images/items/laptop.png",
               "strength": 5
             }
         }
@@ -727,7 +727,7 @@
             "npc_lines": [
               {"id": 0, "responses": [0, 5], "text": "Hello young hero."},
               {"id": 1, "responses": [1, 2], "text": "We are unable to defeat this monster which used to attack our village but I managed to lock him in that prison cell with magic. Unfortunately my power is weakening over time and I don't know how much longer I can hold it. Are you willing to take a quest?"},
-              {"id": 2, "responses": [3], "text": "Bless you. First you need to prove that you are great hero. Please bring me magic scroll and I will let you to the monster. Remember to be well equipped for the battle."},
+              {"id": 2, "responses": [3], "text": "Bless you. First you need to prove that you are great hero. Please bring me Laptop and I will let you to the monster. Remember to be well equipped for the battle."},
               {"id": 3, "responses": [4], "text": "We are doomed."}
             ],
             "player_lines": [
@@ -736,7 +736,7 @@
               {"id": 2, "response": [3], "text": "I don't feel like fighting."},
               {"id": 3, "response": [], "text": "I'll be back with it."},
               {"id": 4, "response": [], "text": "..."},
-              {"id": 5, "response": [], "text": "Here it is. I am ready. Let me face the monster.", "questItem": {"name": "Scroll"}, "action": {"finishedQuest": true}, "requirements": {"startedQuest": true, "finishedQuest": false}}
+              {"id": 5, "response": [], "text": "Here it is. I am ready. Let me face the monster.", "questItem": {"name": "Laptop"}, "action": {"finishedQuest": true}, "requirements": {"startedQuest": true, "finishedQuest": false}}
             ]
           }
         }
