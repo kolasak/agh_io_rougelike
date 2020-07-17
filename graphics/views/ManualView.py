@@ -22,7 +22,7 @@ class ManualView(View):
 
         self.render_line_center('GAME CONTROLS INFO', 1)
 
-        number_of_lines = 10
+        number_of_lines = 11
         line_height = Screen.screen_height // number_of_lines
 
         i = 1
@@ -43,22 +43,31 @@ class ManualView(View):
                                   i * Screen.screen_height * 2 // 10 + 48, background_color=black)
 
         images_paths = ["manual/keyboard_key_e.png", "items/sword.png", "items/key.png",
-                        "items/hp_potion.png", "manual/keyboard_key_r.png",
+                        "items/hp_potion.png", "items/life_renewal_potion.png",
+                        "manual/keyboard_key_1.png", "manual/keyboard_key_r.png",
                         "manual/keyboard_key_m.png", "manual/keyboard_key_h.png"]
 
         descriptions = ["Pick items from the map", "Some items can boost your strength",
-                        "Some items can help you explore the map", "And some items can restore your HP",
+                        "Some items can help you explore the map", "Some items can restore your HP",
+                        "And some can even bring you back to life", "Drop items (max 7 in backpack)",
                         "Interact with surroundings", "Use magic potions", "Open/Close Info"]
 
         for path, description in zip(images_paths, descriptions):
             i += 1
             img = pygame.image.load("images/" + path)
             if path.startswith("manual"):
-                Screen.display_surface.blit(img, (Screen.screen_width // 8, i * line_height))
+                if path == "manual/keyboard_key_1.png":
+                    Screen.display_surface.blit(img, (Screen.screen_width // 8 - 32, i * line_height + 10))
+                    img = pygame.image.load("images/manual/navigate_minus.png")
+                    Screen.display_surface.blit(img, (Screen.screen_width // 8, i * line_height + 10))
+                    img = pygame.image.load("images/manual/keyboard_key_7.png")
+                    Screen.display_surface.blit(img, (Screen.screen_width // 8 + 32, i * line_height + 10))
+                else:
+                    Screen.display_surface.blit(img, (Screen.screen_width // 8, i * line_height + 10))
             else:
-                Screen.display_surface.blit(img, (Screen.screen_width // 6, i * line_height))
+                Screen.display_surface.blit(img, (Screen.screen_width // 6, i * line_height + 10))
             Screen.render_text_values(description, Screen.screen_width + 100, 0, 0,
-                                      i * Screen.screen_height * 2 // 10 + 32, background_color=black)
+                                      i * Screen.screen_height * 2 // number_of_lines + 32 + 10, background_color=black)
 
         pygame.display.flip()
 
