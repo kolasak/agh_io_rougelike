@@ -2,7 +2,7 @@ import time
 
 import pygame
 
-from fixtures.constants import black, life_renewal_potion_item_name
+from fixtures.constants import *
 from graphics.Screen import Screen
 from graphics.views.BattleView import BattleView
 from graphics.views.QuestionView import QuestionView
@@ -51,11 +51,10 @@ class BattleController:
 
     def battle_lost_result(self):
         self.won = False
-        self.character.exp -= self.monster.xp
         return ['You lost!']
 
     def battle_player_strike(self):
-        strike_amount = self.character.strength + self.boost
+        strike_amount = self.character.strength + self.boost + self.character.exp // 10
         self.monster.hp -= strike_amount
         self.battle_view.display_round(f'You hit monster with {strike_amount} damage.')
         if self.monster.hp <= 0:
@@ -89,7 +88,7 @@ class BattleController:
     def bring_character_back_to_life(self):
         for item in self.character.items:
             if item.name == life_renewal_potion_item_name:
-                self.character.hp = item.strength
+                self.character.hp = item.healing
                 self.character.remove_item(item)
                 pygame.display.update()
                 break

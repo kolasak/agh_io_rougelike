@@ -54,7 +54,7 @@
             "strength": 16,
             "hp": 75,
             "xp": 10,
-            "image": "images/bosses/boss1.png",
+            "image": "images/bosses/dragon1.png",
             "item": {
               "name": "BetterSword",
               "type": "boost",

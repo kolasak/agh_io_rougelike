@@ -5,7 +5,8 @@ from pygame.locals import K_w, K_a, K_s, K_d, K_e, K_r, K_h, K_q
 
 from character.items.Key import Key
 from enums.Direction import Direction
-from fields import GateField, RoadField
+from fields.GateField import GateField
+from fields.RoadField import RoadField
 from fixtures.constants import max_items_count
 from graphics import Screen
 # from controllers.ManualController import ManualController
@@ -55,6 +56,7 @@ class CharacterController:
             elif isinstance(fields[x][y], GateField):
                 keys_ids = [x.id for x in character_info_view.character_info.items if isinstance(x, Key)]
                 if fields[x][y].key_id in keys_ids:
+                    character_info_view.character_info.remove_key(fields[x][y].key_id)
                     fields[x][y] = RoadField()
                     Screen.Screen.display_map()
                     character_info_view.display()

@@ -19,7 +19,7 @@ class View(ABC):
         Screen.render_text_values(text, self.x_center * 2, 0, line_no * 50, 0, background_color=black)
         pygame.display.flip()
 
-    def display_game_ending(self, exp, is_won):
+    def display_game_ending(self, exp, is_won=False):
         Screen.display_surface.fill(black)
 
         if is_won:

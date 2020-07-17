@@ -12,10 +12,15 @@ class DialogController:
         self.playerLines = self.npc.dialog['player_lines']
         self.hasResponse = False
         self.dialog_view = DialogView(self)
+        self.item_to_delete = None
 
     def start_dialog(self):
         self.dialog_view.display()
-        return self.npc.attributes['finishedQuest']
+        finished = self.npc.attributes['finishedQuest']
+        if finished and self.item_to_delete:
+            self.character.exp += 5
+            self.character.remove_item(self.item_to_delete)
+        return finished
 
     def getNpcStartLine(self):
         self.npcLineId = random.choice(self.npc.dialog['npc_starting_lines'])
@@ -31,7 +36,7 @@ class DialogController:
         return self.npcLines[self.npcLineId]['text']
 
     def getPlayerLines(self):
-        playerResponseIds = self.npcLines[self.playerLineId]['responses']
+        playerResponseIds = self.npcLines[self.npcLineId]['responses']
         if not playerResponseIds:
             return None
         lines = list()
@@ -46,14 +51,13 @@ class DialogController:
         for key, value in self.playerLines[responseId]['requirements'].items():
             if (value != self.npc.attributes[key]):
                 return False
-        
         # if dialog option requires questItem check if player has it
         if ('questItem' not in self.playerLines[responseId]):
             return True
         for item in self.character._items:
             if (item.name == self.playerLines[responseId]['questItem']['name']):
-                # and remove it from players inventory in the round :) 
-                self.character.remove_item(item)
+                # and remove it from players inventory in the round :)
+                self.item_to_delete = item
                 return True
         return False
 
