@@ -2,7 +2,7 @@ import time
 
 import pygame
 
-from fixtures.constants import black, life_renewal_potion_item_name
+from fixtures.constants import *
 from graphics.Screen import Screen
 from graphics.views.BattleView import BattleView
 from graphics.views.QuestionView import QuestionView
@@ -51,7 +51,6 @@ class BattleController:
 
     def battle_lost_result(self):
         self.won = False
-        self.character.exp -= self.monster.xp
         return ['You lost!']
 
     def battle_player_strike(self):
@@ -89,7 +88,7 @@ class BattleController:
     def bring_character_back_to_life(self):
         for item in self.character.items:
             if item.name == life_renewal_potion_item_name:
-                self.character.hp = item.strength
+                self.character.hp = max_hp // 2
                 self.character.remove_item(item)
                 pygame.display.update()
                 break

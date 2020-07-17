@@ -26,5 +26,6 @@ class PassageField(Field):
             character_info._y = self.next_y
             Screen.instance.fields = self.room
             Screen.display_map()
+            Screen.display_character_info(CharacterInfoView(character_info))
             Screen.display_character(character_info, Direction.SOUTH)
             pygame.display.update()

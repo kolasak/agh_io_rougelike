@@ -1,0 +1,612 @@
+[
+  [
+    {
+      "map": {
+        "width": 20,
+        "height": 20,
+        "map": [
+          ["V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V"],
+          ["V","M","M","M","M","V","M","M","M","M","M","M","V","M","T","T","V","V","V","V"],
+          ["V","M","V","V","M","V","M","V","M","M","V","M","M","M","V","T","V","M","M","V"],
+          ["V","M","M","M","V","M","M","M","V","V","V","V","V","V","V","V","V","V","M","V"],
+          ["V","V","M","V","M","M","V","V","V","W","V","F","V","M","M","M","V","V","M","P"],
+          ["V","M","M","M","V","M","V","V","T","T","T","F","V","M","V","M","M","V","V","V"],
+          ["V","M","V","M","V","M","M","M","T","T","T","F","V","M","M","V","M","M","M","V"],
+          ["V","M","V","V","M","V","V","M","T","T","T","F","W","V","M","V","M","V","M","V"],
+          ["V","M","M","M","M","V","V","M","V","M","V","V","V","V","M","M","V","M","M","V"],
+          ["V","M","V","V","M","M","M","M","V","M","V","M","M","M","V","M","V","M","V","V"],
+          ["V","M","V","M","V","V","V","M","V","M","V","M","V","M","M","M","V","M","M","V"],
+          ["V","M","M","M","V","M","M","V","M","M","V","M","M","V","V","V","M","M","V","V"],
+          ["V","M","V","V","M","M","V","M","M","V","M","M","V","M","M","M","V","M","V","V"],
+          ["V","M","M","M","M","V","V","V","M","M","M","V","V","M","V","M","V","M","M","V"],
+          ["V","V","M","V","M","V","V","M","V","V","V","M","M","M","V","M","M","V","M","V"],
+          ["V","M","M","M","V","M","M","M","M","M","V","M","V","V","M","V","M","M","M","V"],
+          ["V","M","V","V","M","M","V","V","V","M","V","M","V","M","M","V","V","V","M","V"],
+          ["V","M","V","M","M","V","M","M","V","M","M","M","V","M","V","M","M","M","M","V"],
+          ["V","M","M","V","M","M","M","V","V","V","M","V","M","M","M","M","V","M","V","V"],
+          ["V","V","V","V","V","V","V","V","V","V","P","V","V","V","V","V","V","V","V","V"]
+        ]
+      },
+      "monsters": {
+        "basic": [
+          {
+            "x": 4,
+            "y": 2,
+            "strength": 2,
+            "hp": 20,
+            "xp": 20,
+            "image": "images/monsters/monster_1.png",
+            "item": null
+          }
+        ],
+        "bosses": []
+      },
+      "npcs": [
+        {
+          "name": "Marvin",
+          "image": "images/npcs/marvin.png",
+          "x": 12,
+          "y": 8,
+          "attributes": {
+            "startedQuest": false,
+            "finishedQuest": false
+          },
+          "quest": {
+            "name":"Sad robot",
+            "item": {
+              "name": "POV gun",
+              "type": "boost",
+              "image": "images/items/point_of_view_gun.png",
+              "strength": 42
+            }
+          },
+          "dialog": {
+            "npc_starting_lines": [5, 0],
+            "npc_lines": [
+              {"id": 0, "responses": [0, 1, 6], "text": "Uhh"},
+              {"id": 1, "responses": [2, 3], "text": "You bet. It's this Genuine People Personalities technology. It's pain in the processor."},
+              {"id": 2, "responses": [4, 5], "text": "What's the point? But I guess you could try. I will need a spare processor."},
+              {"id": 3, "responses": [], "text": "I'm not going anywhere."},
+              {"id": 4, "responses": [], "text": "Like this could help."},
+              {"id": 5, "responses": [0, 1, 6], "text": "Uhhh, you again."},
+              {"id": 6, "responses": [], "text": "Where did you find this 8086? Maybe I will be able to play some tetris on it. All those dissapearing blocks. That ought to cheer me up. Anyway, here is little something for your trouble. Off I go."}
+            ],
+            "player_lines": [
+              {"id": 0, "response": [], "text": "Uhh, another sad robot."},
+              {"id": 1, "response": [1], "text": "Hello, you seem down."},
+              {"id": 2, "response": [2], "text": "Maybe i could help you with that."},
+              {"id": 3, "response": [], "text": "Yeah, it sounds ghastly. Bye"},
+              {"id": 4, "response": [3], "text": "Sure. Let me get it for you", "action": {"startedQuest": true}, "requirements": {"finishedQuest": false}},
+              {"id": 5, "response": [], "text": "I meant something more along the lines of cheering you up."},
+              {"id": 6, "response": [6], "text": "I brought you processors. Hope they'll help", "questItem": {"name": "8086 processor"}, "action": {"finishedQuest": true}, "requirements": {"startedQuest": true, "finishedQuest": false}}
+            ]
+          }
+        },
+        {
+          "name": "Marvin",
+          "image": "images/npcs/marvin.png",
+          "x": 12,
+          "y": 8,
+          "attributes": {
+            "startedQuest": false,
+            "finishedQuest": false
+          },
+          "quest": {
+            "name":"Sad robot",
+            "item": {
+              "name": "POV gun",
+              "type": "boost",
+              "image": "images/items/point_of_view_gun.png",
+              "strength": 42
+            }
+          },
+          "dialog": {
+            "npc_starting_lines": [5, 0],
+            "npc_lines": [
+              {"id": 0, "responses": [0, 1, 6], "text": "Uhh"},
+              {"id": 1, "responses": [2, 3], "text": "You bet. It's this Genuine People Personalities technology. It's pain in the processor."},
+              {"id": 2, "responses": [4, 5], "text": "What's the point? But I guess you could try. I will need a spare processor."},
+              {"id": 3, "responses": [], "text": "I'm not going anywhere."},
+              {"id": 4, "responses": [], "text": "Like this could help."},
+              {"id": 5, "responses": [0, 1, 6], "text": "Uhhh, you again."},
+              {"id": 6, "responses": [], "text": "Where did you find this 8086? Maybe I will be able to play some tetris on it. All those dissapearing blocks. That ought to cheer me up. Anyway, here is little something for your trouble. Off I go."}
+            ],
+            "player_lines": [
+              {"id": 0, "response": [], "text": "Uhh, another sad robot."},
+              {"id": 1, "response": [1], "text": "Hello, you seem down."},
+              {"id": 2, "response": [2], "text": "Maybe i could help you with that."},
+              {"id": 3, "response": [], "text": "Yeah, it sounds ghastly. Bye"},
+              {"id": 4, "response": [3], "text": "Sure. Let me get it for you", "action": {"startedQuest": true}, "requirements": {"finishedQuest": false}},
+              {"id": 5, "response": [], "text": "I meant something more along the lines of cheering you up."},
+              {"id": 6, "response": [6], "text": "I brought you processors. Hope they'll help", "questItem": {"name": "8086 processor"}, "action": {"finishedQuest": true}, "requirements": {"startedQuest": true, "finishedQuest": false}}
+            ]
+          }
+        }
+      ],
+      "items": {
+        "keys": [],
+        "boost": [],
+        "potions": []
+      },
+      "chests": [
+        {
+          "x": 17,
+          "y": 2,
+          "difficulty": 3,
+          "item": {
+              "name": "HPPotion",
+              "type": "potion",
+              "image": "images/items/hp_potion.png",
+              "healing": 10
+            }
+        }
+      ],
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "map": {
+        "width": 20,
+        "height": 20,
+        "map": [
+          ["V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V"],
+          ["V","M","M","M","M","V","M","V","M","M","M","M","M","M","M","M","M","V","V","V"],
+          ["V","M","V","M","V","M","M","M","M","V","V","V","V","V","V","V","M","M","V","V"],
+          ["V","M","M","V","M","M","V","M","V","M","M","M","M","M","M","V","V","M","M","V"],
+          ["V","V","M","M","M","V","V","M","M","M","V","M","V","V","M","M","M","V","M","V"],
+          ["V","M","M","V","M","V","M","V","M","V","M","V","V","M","V","V","M","V","M","V"],
+          ["V","M","V","V","M","V","M","M","V","M","M","M","M","M","M","M","M","V","M","V"],
+          ["V","M","V","M","M","M","M","V","M","M","V","V","V","V","V","V","M","V","M","V"],
+          ["V","M","M","V","V","V","M","M","V","M","V","M","M","M","M","M","V","M","M","V"],
+          ["V","V","M","M","M","V","V","M","V","M","V","V","V","V","V","M","M","M","V","V"],
+          ["V","M","M","V","M","M","V","M","V","M","M","M","M","M","V","M","V","V","M","V"],
+          ["V","M","V","V","V","M","M","V","M","V","M","V","V","M","V","M","M","V","M","V"],
+          ["V","M","M","V","M","M","V","M","M","M","V","M","M","M","V","V","M","V","M","V"],
+          ["V","M","V","M","M","V","V","M","V","M","M","M","V","V","M","V","M","M","M","V"],
+          ["V","V","M","M","V","M","M","M","V","V","V","V","M","M","M","M","V","V","M","V"],
+          ["V","M","M","V","M","V","M","V","M","M","M","V","M","V","V","M","M","V","M","V"],
+          ["V","M","V","M","M","V","M","V","M","V","V","M","M","M","V","M","V","V","M","P"],
+          ["V","M","V","M","V","M","M","V","M","M","M","V","V","M","V","M","M","M","M","V"],
+          ["P","M","M","M","M","M","V","M","M","V","M","M","M","M","M","V","M","V","M","V"],
+          ["V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","P","V","V","V"]
+        ]
+      },
+      "monsters": {
+        "basic": [
+          {
+            "x": 2,
+            "y": 4,
+            "strength": 1,
+            "hp": 10,
+            "xp": 10,
+            "image": "images/monsters/monster_1.png",
+            "item": null
+          },
+          {
+            "x": 7,
+            "y": 2,
+            "strength": 1,
+            "hp": 10,
+            "xp": 10,
+            "image": "images/monsters/monster_1.png",
+            "item": null
+          }
+        ],
+        "bosses": []
+      },
+      "npcs": [],
+      "items": {
+        "keys": [],
+        "boost": [],
+        "potions": []
+      },
+      "chests": [],
+      "position": [
+        0,
+        1
+      ]
+    },
+    {
+      "map": {
+        "width": 20,
+        "height": 20,
+        "map": [
+          ["V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V"],
+          ["V","M","M","M","M","W","M","M","V","M","V","M","M","M","V","M","M","M","M","V"],
+          ["V","V","V","M","W","W","W","W","M","M","M","V","M","V","M","M","V","V","M","V"],
+          ["V","M","M","M","M","W","M","M","M","V","M","M","M","M","M","V","M","M","M","V"],
+          ["V","M","V","M","W","W","W","W","M","M","V","M","V","V","V","M","M","V","V","V"],
+          ["V","M","M","M","W","W","M","M","M","M","M","V","M","M","V","M","V","M","M","V"],
+          ["P","M","V","M","M","W","M","M","M","V","M","M","M","V","M","M","V","V","M","V"],
+          ["V","V","M","M","W","M","M","V","V","V","V","M","V","M","M","V","M","M","M","V"],
+          ["V","V","V","M","M","M","M","V","M","V","M","M","V","M","V","V","M","V","M","V"],
+          ["V","V","M","V","M","M","V","M","M","V","M","V","M","M","V","M","M","V","M","V"],
+          ["V","M","M","V","M","V","M","M","V","M","M","V","M","V","M","M","V","M","M","V"],
+          ["V","M","V","V","M","V","V","M","V","M","V","M","M","V","M","V","M","M","V","V"],
+          ["V","M","M","M","M","M","V","M","V","M","V","V","M","M","M","V","M","V","M","V"],
+          ["V","M","V","V","V","V","M","M","V","M","M","M","V","V","V","M","M","V","M","V"],
+          ["V","M","V","M","M","M","M","V","M","V","V","M","M","M","M","V","M","V","M","V"],
+          ["V","M","M","M","V","V","M","M","M","V","M","V","V","M","V","M","M","V","M","V"],
+          ["V","M","V","V","M","M","V","V","M","M","M","M","V","M","M","M","V","M","M","V"],
+          ["V","V","M","M","M","V","M","V","V","V","M","V","M","V","V","V","M","V","M","V"],
+          ["V","M","M","V","M","M","M","M","M","M","M","M","M","M","M","M","M","M","M","V"],
+          ["V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V"]
+        ]
+      },
+      "monsters": {
+        "basic": [],
+        "bosses": []
+      },
+      "npcs": [],
+      "items": {
+        "keys": [],
+        "boost": [],
+        "potions": []
+      },
+      "chests": [],
+      "position": [
+        0,
+        2
+      ]
+    }
+  ],
+  [
+    {
+      "map": {
+        "width": 20,
+        "height": 20,
+        "map": [
+          ["V","V","V","V","V","V","V","V","V","V","V","V","V","P","V","V","V","V","V","V"],
+          ["V","V","M","M","M","V","M","M","M","M","M","M","V","M","M","M","M","M","M","V"],
+          ["V","M","M","V","V","V","M","V","V","M","V","M","M","V","G","V","M","V","M","V"],
+          ["V","M","V","V","M","M","M","V","M","M","M","V","M","V","M","M","M","V","M","P"],
+          ["V","M","V","M","M","V","V","M","M","V","M","V","M","M","V","M","V","M","M","V"],
+          ["V","M","M","M","V","M","V","M","V","V","V","M","V","M","M","V","M","V","M","V"],
+          ["V","V","M","V","V","M","V","M","M","V","M","M","V","V","M","V","M","V","M","V"],
+          ["V","M","M","M","M","M","M","V","M","V","M","V","M","M","M","M","M","M","M","V"],
+          ["V","M","V","V","M","V","V","V","M","V","M","M","M","V","V","M","V","V","V","V"],
+          ["V","M","M","V","V","M","M","M","M","V","V","V","V","V","V","V","M","M","M","V"],
+          ["V","V","M","M","V","M","V","V","V","M","M","M","M","V","V","M","M","V","M","V"],
+          ["V","M","V","M","V","M","M","M","V","M","V","V","M","M","M","M","V","M","M","V"],
+          ["V","M","V","M","M","V","V","M","M","M","V","V","V","M","V","V","V","M","V","V"],
+          ["V","M","M","V","M","M","M","V","V","V","M","V","M","M","V","M","M","M","M","V"],
+          ["V","V","M","V","V","V","M","V","M","M","M","V","M","V","M","M","V","V","M","V"],
+          ["V","M","M","M","M","M","M","V","M","V","V","M","M","V","M","V","V","M","M","V"],
+          ["V","M","V","V","V","V","M","V","M","V","V","M","V","M","M","V","M","M","V","V"],
+          ["V","M","V","M","M","M","V","V","M","M","M","V","V","M","V","V","M","V","M","V"],
+          ["V","M","M","M","V","M","M","M","V","V","M","M","M","M","V","M","M","M","M","V"],
+          ["V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V"]
+        ]
+      },
+      "monsters": {
+        "basic": [],
+        "bosses": []
+      },
+      "npcs": [],
+      "items": {
+        "keys": [],
+        "boost": [],
+        "potions": [
+          {
+            "name": "HPPotion",
+            "image": "images/items/hp_potion.png",
+            "healing": 5,
+            "x": 18,
+            "y": 17
+          }
+        ]
+      },
+      "chests": [
+        {
+          "x": 4,
+          "y": 1,
+          "difficulty": 4,
+          "item": {
+            "x": 2,
+            "y": 17,
+            "type": "key",
+            "gate_x": 14,
+            "gate_y": 2
+          }
+        }
+      ],
+      "position": [
+        1,
+        0
+      ]
+    },
+    {
+      "map": {
+        "width": 20,
+        "height": 20,
+        "map": [
+          ["V","V","V","V","V","V","V","V","P","V","V","V","V","V","V","V","V","V","V","V"],
+          ["V","F","R","R","R","R","R","R","R","R","R","M","M","M","M","M","W","W","W","V"],
+          ["V","R","T","W","W","F","F","F","F","F","R","R","W","W","W","W","W","M","M","V"],
+          ["V","R","W","W","W","W","W","W","W","W","W","R","M","M","M","M","M","M","M","V"],
+          ["V","R","W","W","W","W","F","F","F","F","F","R","R","M","M","M","M","M","M","V"],
+          ["V","R","W","W","W","F","F","F","F","F","F","F","R","M","M","M","M","M","M","V"],
+          ["V","R","R","W","W","F","F","F","F","F","F","F","R","M","M","M","R","R","R","P"],
+          ["V","F","R","R","F","F","F","F","R","R","R","R","R","R","R","R","R","M","M","V"],
+          ["V","F","F","R","F","F","R","R","R","T","F","F","F","F","F","F","F","M","M","V"],
+          ["V","F","F","R","F","F","R","F","F","W","W","F","F","F","F","F","F","F","M","V"],
+          ["V","F","F","R","F","F","R","F","W","W","W","W","F","F","F","F","F","F","F","V"],
+          ["P","R","R","R","R","R","R","F","F","W","W","F","F","F","F","F","F","F","F","V"],
+          ["V","F","F","F","F","R","F","F","F","F","F","F","F","F","F","F","F","T","F","V"],
+          ["V","F","F","F","F","R","F","F","F","F","F","F","F","F","F","F","F","F","F","V"],
+          ["V","F","F","F","F","R","F","F","F","F","F","F","F","F","F","F","F","F","F","V"],
+          ["V","F","F","F","F","R","F","F","F","F","F","F","F","F","F","F","F","F","F","V"],
+          ["V","F","F","F","F","R","R","R","R","R","F","F","F","F","F","F","F","F","F","V"],
+          ["V","F","F","F","F","F","F","F","F","R","F","F","F","F","F","F","F","F","F","V"],
+          ["V","T","F","F","F","F","F","F","F","R","F","F","F","F","F","F","F","F","F","V"],
+          ["V","V","V","V","V","V","V","V","V","P","V","V","V","V","V","V","V","V","V","V"]
+        ]
+      },
+      "monsters": {
+        "basic": [
+          {
+            "x": 1,
+            "y": 11,
+            "strength": 1,
+            "hp": 10,
+            "xp": 10,
+            "image": "images/monsters/monster_1.png",
+            "item": null
+          },
+          {
+            "x": 8,
+            "y": 1,
+            "strength": 1,
+            "hp": 10,
+            "xp": 10,
+            "image": "images/monsters/monster_1.png",
+            "item": null
+          },
+          {
+            "x": 18,
+            "y": 6,
+            "strength": 1,
+            "hp": 10,
+            "xp": 10,
+            "image": "images/monsters/monster_1.png",
+            "item": null
+          }
+        ],
+        "bosses": []
+      },
+      "npcs": [],
+      "items": {
+        "keys": [
+          {
+            "x": 2,
+            "y": 17,
+            "gate_x": 9,
+            "gate_y": 15
+          }
+        ],
+        "boost": [
+          {
+            "name": "LifeRenewalPotion",
+            "image": "images/items/life_renewal_potion.png",
+            "strength": 0,
+            "x": 14,
+            "y": 14
+          }
+        ],
+        "potions": [
+          {
+            "name": "HPPotion",
+            "image": "images/items/hp_potion.png",
+            "healing": 5,
+            "x": 18,
+            "y": 17
+          }
+        ]
+      },
+      "chests": [],
+      "position": [
+        1,
+        1
+      ]
+    },
+    {
+      "map": {
+        "width": 20,
+        "height": 20,
+        "map": [
+          ["V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V"],
+          ["V","W","W","F","F","F","F","V","M","M","V","M","M","M","M","M","V","M","M","V"],
+          ["V","W","F","F","F","F","F","V","V","M","M","M","V","V","V","M","M","M","V","V"],
+          ["V","F","F","F","F","F","V","M","M","V","M","V","M","M","M","V","V","M","M","V"],
+          ["V","F","F","F","F","V","M","V","M","M","M","V","M","V","M","V","V","V","M","V"],
+          ["V","F","F","F","V","M","M","M","V","V","M","V","M","V","M","M","V","M","M","V"],
+          ["V","F","F","V","M","M","V","M","V","M","M","V","M","V","V","M","M","V","M","V"],
+          ["V","V","M","V","V","V","V","M","M","M","V","M","M","M","M","V","M","V","M","V"],
+          ["V","V","M","M","M","M","M","M","V","V","M","M","V","V","M","M","V","V","M","V"],
+          ["V","V","V","V","M","V","M","V","M","M","V","V","M","M","V","M","V","M","M","V"],
+          ["V","M","M","M","M","V","M","V","V","M","M","M","M","V","M","M","V","M","V","V"],
+          ["V","M","V","V","M","M","V","M","M","M","V","V","M","M","M","V","M","M","V","V"],
+          ["V","M","M","V","M","V","M","M","V","V","M","M","V","V","M","M","V","M","M","V"],
+          ["V","M","V","M","M","M","V","M","M","V","M","M","M","M","V","V","M","V","M","V"],
+          ["V","M","V","M","V","M","V","V","M","M","V","M","V","M","V","M","M","V","M","V"],
+          ["V","V","M","M","V","M","M","M","V","M","V","M","V","M","M","M","V","V","M","V"],
+          ["V","M","M","V","M","V","V","M","M","M","V","M","M","V","M","V","M","M","M","V"],
+          ["P","M","V","V","M","M","M","V","V","V","M","V","M","V","M","M","V","V","M","V"],
+          ["V","M","M","M","M","V","M","M","M","M","M","M","M","M","V","M","M","M","M","V"],
+          ["V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V"]
+        ]
+      },
+      "monsters": {
+        "basic": [],
+        "bosses": [
+          {
+            "x": 4,
+            "y": 11,
+            "strength": 25,
+            "hp": 200,
+            "xp": 0,
+            "image": "images/bosses/boss1.png",
+            "item": null
+          }
+        ]
+      },
+      "npcs": [],
+      "items": {
+        "keys": [],
+        "boost": [],
+        "potions": []
+      },
+      "chests": [
+         {
+          "x": 1,
+          "y": 3,
+          "difficulty": 6,
+          "item": {
+            "name": "Sword",
+            "type": "boost",
+            "image": "images/items/sword.png",
+            "strength": 5
+          }
+        },
+         {
+          "x": 2,
+          "y": 2,
+          "difficulty": 2,
+          "item": {
+            "name": "Bad Sword",
+            "type": "boost",
+            "image": "images/items/sword.png",
+            "strength": 0
+          }
+        },
+         {
+          "x": 3,
+          "y": 1,
+          "difficulty": 2,
+          "item": {
+            "name": "Bad Sword",
+            "type": "boost",
+            "image": "images/items/sword.png",
+            "strength": 0
+          }
+        }
+      ],
+      "position": [
+        1,
+        2
+      ]
+    }
+  ],
+  [
+    {
+      "map": {
+        "width": 0,
+        "height": 0,
+        "map": [
+          []
+        ]
+      },
+      "monsters": {
+        "basic": [],
+        "bosses": []
+      },
+      "npcs": [],
+      "items": {
+        "keys": [],
+        "boost": [],
+        "potions": []
+      },
+      "chests": [],
+      "position": [
+        2,
+        0
+      ]
+    },
+    {
+      "map": {
+        "width": 20,
+        "height": 20,
+        "map": [
+          ["V","V","V","V","V","V","V","V","V","P","V","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","W","M","W","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","W","M","W","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","W","M","W","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","W","M","W","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","W","M","M","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","W","M","W","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","W","M","W","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","W","M","W","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","W","M","W","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","W","M","W","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","W","M","W","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","W","M","W","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","W","M","W","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","W","M","W","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","W","G","W","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","W","M","W","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","W","E","W","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","W","W","W","V","V","V","V","V","V","V","V","V"],
+          ["V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V","V"]
+        ]
+      },
+      "monsters": {
+        "basic": [],
+        "bosses": [
+          {
+            "x": 9,
+            "y": 16,
+            "strength": 16,
+            "hp": 52,
+            "xp": 100,
+            "image": "images/bosses/boss1.png",
+            "item": null
+          }
+        ]
+      },
+      "npcs": [],
+      "items": {
+        "keys": [
+          {
+            "x": 10,
+            "y": 5,
+            "gate_x": 9,
+            "gate_y": 15
+          }
+        ],
+        "boost": [],
+        "potions": []
+      },
+      "chests": [],
+      "position": [
+        2,
+        1
+      ]
+    },
+    {
+      "map": {
+        "width": 0,
+        "height": 0,
+        "map": [
+          []
+        ]
+      },
+      "monsters": {
+        "basic": [],
+        "bosses": []
+      },
+      "npcs": [],
+      "items": {
+        "keys": [],
+        "boost": [],
+        "potions": []
+      },
+      "chests": [],
+      "position": [
+        2,
+        2
+      ]
+    }
+  ]
+]

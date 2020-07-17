@@ -83,7 +83,7 @@ class CharacterInfo:
                 return item
 
     def heal_with_item(self, item):
-        result_hp = self._hp + item.strength
+        result_hp = self._hp + item.healing
         if result_hp > max_hp:
             return False
         self._hp = result_hp
