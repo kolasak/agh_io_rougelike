@@ -3,17 +3,26 @@ from fixtures.constants import max_items_count, hp_potion_item_name, max_hp
 
 
 class CharacterInfo:
-    def __init__(self, hp, exp, strength, x, y):
+    def __init__(self, hp, exp, strength, x, y, direction):
         self._hp = hp
         self._exp = exp
         self._strength = strength
         self._items = []
         self._x = x
         self._y = y
+        self._direction = direction
 
     @property
     def hp(self):
         return self._hp
+
+    @property
+    def direction(self):
+        return self._direction
+
+    @direction.setter
+    def direction(self, value):
+        self._direction = value
 
     @hp.setter
     def hp(self, value):

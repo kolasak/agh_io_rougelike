@@ -32,6 +32,7 @@ class CharacterController:
         if event_key in move_keys.keys():
             x = character_info_view.character_info.x + move_keys[event_key][0]
             y = character_info_view.character_info.y + move_keys[event_key][1]
+            direction = move_keys[event_key][2]
             token = fields[x][y].get_token()
             if token is not None:
                 result = token.interact(character_info_view.character_info)
@@ -46,9 +47,11 @@ class CharacterController:
             elif CharacterController.check_if_passable(fields[x][y]):
                 character_info_view.character_info.x = x
                 character_info_view.character_info.y = y
+                character_info_view.character_info.direction = direction
                 Screen.Screen.render_character(old_x, old_y, x, y, character_info_view.character_img,
-                                               move_keys[event_key][2])
+                                               direction)
                 fields[x][y].interact(character_info_view.character_info)
+                character_info_view.display()
             elif isinstance(fields[x][y], GateField):
                 keys_ids = [x.id for x in character_info_view.character_info.items if isinstance(x, Key)]
                 if fields[x][y].key_id in keys_ids:
@@ -64,13 +67,7 @@ class CharacterController:
                     Screen.Screen.render_text_values_for_n_seconds(character_info_view,
                                                                    'You can\'t have any more items.',
                                                                    700, 0, 800, 0)
-
-                Screen.Screen.render_character(character_info_view.character_info.x,
-                                               character_info_view.character_info.y,
-                                               character_info_view.character_info.x,
-                                               character_info_view.character_info.y, character_info_view.character_img,
-                                               Direction.SOUTH)
-                Screen.Screen.display_character_info(character_info_view)
+                character_info_view.display()
         elif isnumeric(pygame.key.name(event_key)) \
                 and int(pygame.key.name(event_key)) in range(1, len(character_info_view.character_info.items) + 1):
             item_number = int(pygame.key.name(event_key)) - 1
