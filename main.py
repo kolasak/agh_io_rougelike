@@ -1,5 +1,5 @@
 from character.CharacterInfo import CharacterInfo
-from configuration import load_map, load_questions
+from configuration import load_map, load_questions, load_multi_room_map
 from fixtures.dimens import initial_character_display_coord_x, initial_character_display_coord_y
 from graphics.Screen import Screen
 from graphics.views.CharacterInfoView import CharacterInfoView
