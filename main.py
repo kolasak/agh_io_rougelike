@@ -15,7 +15,7 @@ def get_example_character_info_view():
 
 
 if __name__ == "__main__":
-    game_map = load_multi_room_map('game.json')
+    game_map = load_multi_room_map('config.json')
     fields = game_map[1][1]
     load_questions()
 
