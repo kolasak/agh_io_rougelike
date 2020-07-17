@@ -41,4 +41,4 @@ class CharacterInfoView(View):
 
     def __display_character(self):
         Screen.render_character(self.character_info.x, self.character_info.y, self.character_info.x,
-                                self.character_info.y, self.character_img, Direction.SOUTH)
+                                self.character_info.y, self.character_img, self.character_info.direction)

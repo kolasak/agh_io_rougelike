@@ -11,18 +11,18 @@ class TextUtil:
         self.right_bottom = right_bottom
         self.left_margin = left_margin
         self.font = pygame.font.Font(font_name, font_size)
-        self.current_line = 5
+        self.current_line = 1
 
     def print_multiline(self, text, font_color=fc.green, background_color=fc.black):
-        for line in self.wrapline(text, Screen.screen_width - 100):
+        lines = self.wrapline(text, Screen.screen_width - 100)
+        for line in lines:
             self.print_line(line, font_color=font_color, background_color=background_color)
-            print(line)
+        return len(lines)
 
     def print_line(self, text, font_color=fc.green, background_color=fc.black):
         text_render = self.font.render(
             text, True, font_color, background_color)
-        text_rect = text_render.get_rect()
-        text_rect.topleft = (50, self.current_line * 25)
+        text_rect = ScreenUtil.get_positioned_text(text_render, Screen.screen_width, 0, self.current_line * 50, 0)
         Screen.display_surface.blit(text_render, text_rect)
         pygame.display.flip()
         self.current_line = self.current_line + 1

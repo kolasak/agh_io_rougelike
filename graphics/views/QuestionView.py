@@ -2,6 +2,7 @@ import pygame
 from numpy.core.defchararray import isnumeric
 
 from fixtures.constants import black
+from graphics.TextUtil import TextUtil
 from graphics.views.View import View
 from graphics.Screen import Screen
 
@@ -20,8 +21,9 @@ class QuestionView(View):
 
     def display(self):
         Screen.display_surface.fill(black)
-        self.render_line_center(self.question_text, self.line)
-        self.line += 1
+        text_util = TextUtil((0, 0), (0, 0))
+        number_of_lines = text_util.print_multiline(self.question_text)
+        self.line += number_of_lines + 1
         answer_index = 1
         for answer_text in self.answers:
             self.render_line_center(str(answer_index) + '. ' + answer_text, self.line)
