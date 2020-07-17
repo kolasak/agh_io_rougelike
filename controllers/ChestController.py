@@ -1,6 +1,9 @@
+from fixtures.constants import black
+from graphics.Screen import Screen
 from graphics.views.ChestView import ChestView
 from graphics.views.QuestionView import QuestionView
 from utils import load_random_question
+import time
 
 
 class ChestController:
@@ -37,6 +40,9 @@ class ChestController:
     def accept_answer(self):
         self.code_length = int(self.code_length / 2)
         self.chest.shortened = True
+        Screen.display_surface.fill(black)
+        self.chest_view.render_line_center('Your code will be easier to break', 1)
+        time.sleep(0.5)
 
     def reject_answer(self):
         pass

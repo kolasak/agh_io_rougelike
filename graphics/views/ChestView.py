@@ -3,6 +3,7 @@ from graphics.Screen import Screen
 from graphics.views.View import View
 from utils import keyboard_control
 from pygame import K_a, K_d
+import time
 
 
 class ChestView(View):
@@ -21,9 +22,15 @@ class ChestView(View):
             if self.controller.is_code_correct():
                 self.render_line_center('CORRECT', self.line_no)
                 self.line_no += 1
+                if self.controller.code_ended():
+                    self.render_line_center('You opened the chest', self.line_no)
+                    time.sleep(1)
+                    self.line_no += 1
+                    break
             else:
                 self.render_line_center('WRONG', self.line_no)
                 self.line_no += 1
-                break
-            if self.controller.code_ended():
+                self.render_line_center('Try again', self.line_no)
+                time.sleep(1)
+                self.line_no += 1
                 break
