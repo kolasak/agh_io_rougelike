@@ -35,7 +35,8 @@ class DialogView(View):
                 break
             self.pollPlayersResponse()
             time.sleep(0.3)
-        time.sleep(1)
+        pygame.event.wait()
+        pygame.event.wait()
 
     def clearDialogView(self):
         self.text_util.clear()
@@ -52,7 +53,7 @@ class DialogView(View):
         npcLine = self.controller.getNpcNextLine()
         if not npcLine:
             return False
-        npcLine = self.controller.npc.name() + ': ' + npcLine
+        npcLine = self.controller.npc.name + ': ' + npcLine
         self.text_util.print_multiline(npcLine, font_color=fc.white)
         return True
 

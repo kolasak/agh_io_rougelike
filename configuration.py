@@ -174,7 +174,8 @@ def parse_chests(map, json_chests):
 
 def parse_npcs(map, json_npcs):
     for npc in json_npcs:
-        new_npc = NpcToken(npc['name'], npc['image'], npc['attributes'], npc['dialog'])
+        quest_item = _get_item(map, npc['quest']['item'])
+        new_npc = NpcToken(npc['name'], npc['image'], npc['attributes'], npc['quest'], quest_item, npc['dialog'])
         map[npc['y']][npc['x']].put_token(new_npc)
     return map
 

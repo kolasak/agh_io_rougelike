@@ -2,11 +2,13 @@ from tokens.Token import Token
 from controllers.DialogController import DialogController
 
 class NpcToken(Token):
-    def __init__(self, name, image, attributes, dialog):
-        self._name = name
+    def __init__(self, name, image, attributes, quest, quest_item, dialog):
+        self.name = name
         self._image = image
-        self._attributes = attributes
-        self._dialog = dialog
+        self.attributes = attributes
+        self.quest = quest
+        self.item = quest_item
+        self.dialog = dialog
 
     @property
     def image(self):
@@ -15,13 +17,3 @@ class NpcToken(Token):
     def interact(self, character_info=None):
         controller = DialogController(character_info, self)
         return controller.start_dialog()
-
-    def name(self):
-        return self._name
-
-    def attributes(self):
-        return self._attributes
-    
-    def dialog(self):
-        return self._dialog
-
